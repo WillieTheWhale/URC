@@ -322,7 +322,7 @@ export default function ConferencePage() {
             <motion.div 
               ref={card2.ref}
               style={{ y: card2.y, transitionDelay: '400ms' }}
-              className={`relative md:absolute md:top-[calc(40/1440*100vw)] md:right-0 w-full md:w-[calc(700/1440*100vw)] mt-[calc(20/375*100vw)] md:mt-0 overflow-hidden border-[5px] md:border-[8px] border-solid border-black bg-black z-10 transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              className={`relative md:absolute md:top-[calc(40/1440*100vw)] md:right-0 w-full md:w-[calc(700/1440*100vw)] mt-[calc(20/375*100vw)] md:mt-0 overflow-hidden border-[5px] md:border-[8px] border-solid border-black bg-black z-10 hover:z-30 transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
             >
               <div className="p-[calc(20/375*100vw)] md:p-[calc(50/1440*100vw)]">
                 <div className="flex items-center gap-[calc(12/375*100vw)] md:gap-[calc(20/1440*100vw)] mb-[calc(24/375*100vw)] md:mb-[calc(40/1440*100vw)]">
