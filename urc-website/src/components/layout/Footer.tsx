@@ -35,7 +35,7 @@ export default function Footer() {
   return (
     <footer
       ref={containerRef}
-      className="relative bg-[var(--color-cream)] pb-8 overflow-hidden border-t border-black/10"
+      className="relative bg-[var(--color-cream)] pb-20 md:pb-8 overflow-hidden border-t border-black/10"
     >
       {/* Image Mosaic Strip */}
       <div className={`grid grid-cols-4 md:grid-cols-6 gap-px bg-black/10 transition-opacity duration-[1500ms] ${isActive ? 'opacity-100' : 'opacity-0'}`}>

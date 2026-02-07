@@ -307,7 +307,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden block bg-black px-10 py-4 border-[2px] border-black safe-bottom"
+          className="lg:hidden block bg-black/90 backdrop-blur-sm px-8 py-3 shadow-[0_2px_12px_rgba(0,0,0,0.3)] safe-bottom"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
