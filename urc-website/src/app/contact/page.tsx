@@ -255,7 +255,7 @@ export default function ContactPage() {
                   <h2 className="font-serif text-[calc(24/375*100vw)] md:text-[calc(36/1440*100vw)] leading-[1.1] text-black mb-[calc(16/375*100vw)] md:mb-[calc(24/1440*100vw)]">
                     Contact <span className="italic text-[#4B9CD3]">form</span>
                   </h2>
-                  <p className="font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black/50 mb-[calc(32/375*100vw)] md:mb-[calc(48/1440*100vw)]">
+                  <p className="font-sans text-[max(16px,calc(13/375*100vw))] md:text-[calc(15/1440*100vw)] text-black/50 mb-[calc(32/375*100vw)] md:mb-[calc(48/1440*100vw)]">
                     Fill out the form and we'll get back to you within 2-3 business days.
                   </p>
 
@@ -299,7 +299,7 @@ export default function ContactPage() {
                       <h3 className="font-serif text-[calc(24/375*100vw)] md:text-[calc(32/1440*100vw)] text-black mb-[calc(8/375*100vw)] md:mb-[calc(12/1440*100vw)]">
                         Message Sent!
                       </h3>
-                      <p className="font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black/50 mb-[calc(24/375*100vw)] md:mb-[calc(32/1440*100vw)]">
+                      <p className="font-sans text-[max(16px,calc(13/375*100vw))] md:text-[calc(15/1440*100vw)] text-black/50 mb-[calc(24/375*100vw)] md:mb-[calc(32/1440*100vw)]">
                         Thank you for reaching out. We'll get back to you within 2-3 business days.
                       </p>
                       <button
@@ -328,7 +328,7 @@ export default function ContactPage() {
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="Your name"
-                            className="w-full px-[calc(14/375*100vw)] md:px-[calc(18/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] bg-white border border-black/20 focus:border-black focus:outline-none font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black placeholder:text-black/30 transition-colors"
+                            className="w-full px-[calc(14/375*100vw)] md:px-[calc(18/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] bg-white border border-black/20 focus:border-black focus:outline-none font-sans text-[max(16px,calc(13/375*100vw))] md:text-[calc(15/1440*100vw)] text-black placeholder:text-black/30 transition-colors"
                           />
                         </div>
                         <div>
@@ -346,7 +346,7 @@ export default function ContactPage() {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="your@email.com"
-                            className="w-full px-[calc(14/375*100vw)] md:px-[calc(18/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] bg-white border border-black/20 focus:border-black focus:outline-none font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black placeholder:text-black/30 transition-colors"
+                            className="w-full px-[calc(14/375*100vw)] md:px-[calc(18/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] bg-white border border-black/20 focus:border-black focus:outline-none font-sans text-[max(16px,calc(13/375*100vw))] md:text-[calc(15/1440*100vw)] text-black placeholder:text-black/30 transition-colors"
                           />
                         </div>
                       </div>
@@ -366,7 +366,7 @@ export default function ContactPage() {
                             required
                             value={formData.inquiryType}
                             onChange={handleChange}
-                            className="w-full px-[calc(14/375*100vw)] md:px-[calc(18/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] bg-white border border-black/20 focus:border-black focus:outline-none appearance-none font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black cursor-pointer transition-colors"
+                            className="w-full px-[calc(14/375*100vw)] md:px-[calc(18/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] bg-white border border-black/20 focus:border-black focus:outline-none appearance-none font-sans text-[max(16px,calc(13/375*100vw))] md:text-[calc(15/1440*100vw)] text-black cursor-pointer transition-colors"
                           >
                             <option value="">Select an option</option>
                             {inquiryTypes.map((type) => (
@@ -401,7 +401,7 @@ export default function ContactPage() {
                           value={formData.message}
                           onChange={handleChange}
                           placeholder="How can we help you?"
-                          className="w-full px-[calc(14/375*100vw)] md:px-[calc(18/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] bg-white border border-black/20 focus:border-black focus:outline-none resize-none font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black placeholder:text-black/30 transition-colors"
+                          className="w-full px-[calc(14/375*100vw)] md:px-[calc(18/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] bg-white border border-black/20 focus:border-black focus:outline-none resize-none font-sans text-[max(16px,calc(13/375*100vw))] md:text-[calc(15/1440*100vw)] text-black placeholder:text-black/30 transition-colors"
                         />
                       </div>
 
@@ -473,7 +473,7 @@ export default function ContactPage() {
                     <h3 className="font-serif text-[calc(16/375*100vw)] md:text-[calc(20/1440*100vw)] text-black pr-4 group-hover:text-[#4B9CD3] transition-colors">
                       {faq.q}
                     </h3>
-                    <span className={`flex-shrink-0 w-[calc(20/375*100vw)] md:w-[calc(24/1440*100vw)] h-[calc(20/375*100vw)] md:h-[calc(24/1440*100vw)] flex items-center justify-center border border-black/20 transition-all duration-300 ${openFaq === i ? 'bg-black rotate-45' : 'bg-transparent'}`}>
+                    <span className={`flex-shrink-0 w-[calc(28/375*100vw)] md:w-[calc(24/1440*100vw)] h-[calc(28/375*100vw)] md:h-[calc(24/1440*100vw)] min-w-[28px] min-h-[28px] flex items-center justify-center border border-black/20 transition-all duration-300 ${openFaq === i ? 'bg-black rotate-45' : 'bg-transparent'}`}>
                       <span className={`font-sans text-[calc(16/375*100vw)] md:text-[calc(20/1440*100vw)] leading-none ${openFaq === i ? 'text-white' : 'text-black'}`}>+</span>
                     </span>
                   </button>
@@ -484,7 +484,7 @@ export default function ContactPage() {
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black/60 pb-[calc(16/375*100vw)] md:pb-[calc(24/1440*100vw)] leading-relaxed">
+                    <p className="font-sans text-[max(16px,calc(13/375*100vw))] md:text-[calc(15/1440*100vw)] text-black/60 pb-[calc(16/375*100vw)] md:pb-[calc(24/1440*100vw)] leading-relaxed">
                       {faq.a}
                     </p>
                   </motion.div>

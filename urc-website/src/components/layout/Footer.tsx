@@ -197,7 +197,7 @@ export default function Footer() {
       {/* Massive Watermark */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none select-none">
         <h1 
-          className={`font-serif text-[30vw] leading-[0.7] text-center whitespace-nowrap text-black/[0.02] transition-all duration-[1500ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20%]'}`}
+          className={`font-serif text-[22vw] md:text-[30vw] leading-[0.7] text-center whitespace-nowrap text-black/[0.02] transition-all duration-[1500ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20%]'}`}
         >
           URC@UNC
         </h1>

@@ -151,8 +151,8 @@ export default function Header() {
               transition={{ duration: 1, delay: 0.4, ease: EASE_EXPO_OUT }}
             >
               {/* Gradient Masks for smooth fade */}
-              <div className="absolute left-0 top-0 bottom-0 w-[calc(40/375*100vw)] md:w-[calc(80/1440*100vw)] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-[calc(40/375*100vw)] md:w-[calc(80/1440*100vw)] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+              <div className="absolute left-0 top-0 bottom-0 w-[calc(60/375*100vw)] md:w-[calc(80/1440*100vw)] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-[calc(60/375*100vw)] md:w-[calc(80/1440*100vw)] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
               
               {/* Marquee Track */}
               <div className="flex items-center h-full">
@@ -171,7 +171,7 @@ export default function Header() {
                         <span
                           key={`${repeatIndex}-${segIndex}`}
                           className={`
-                            mx-[calc(8/375*100vw)] md:mx-[calc(16/1440*100vw)]
+                            mx-[calc(12/375*100vw)] md:mx-[calc(16/1440*100vw)]
                             font-serif text-fluid-marquee leading-none tracking-wide
                             ${segment.accent ? 'text-[#4B9CD3]' : 'text-black'}
                             ${segment.bold ? 'font-semibold' : 'font-normal'}
@@ -307,7 +307,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden block bg-black px-8 py-3 border-[2px] border-black"
+          className="lg:hidden block bg-black px-8 py-3 border-[2px] border-black safe-bottom"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
@@ -323,7 +323,7 @@ export default function Header() {
       
       {/* Bottom Left: Credits */}
       <motion.div
-        className="fixed bottom-4 left-2.5 md:left-5 z-[100] mix-blend-difference"
+        className="fixed bottom-14 md:bottom-4 left-2.5 md:left-5 z-[90] mix-blend-difference"
         initial={{ opacity: 0 }}
         animate={scrolled ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5 }}
@@ -345,7 +345,7 @@ export default function Header() {
 
       {/* Bottom Right: Social Links */}
       <motion.div
-        className="fixed bottom-2.5 md:bottom-5 right-2.5 md:right-5 z-[100] md:mix-blend-difference"
+        className="fixed bottom-14 md:bottom-5 right-2.5 md:right-5 z-[90] md:mix-blend-difference"
         initial={{ opacity: 0 }}
         animate={scrolled ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5 }}

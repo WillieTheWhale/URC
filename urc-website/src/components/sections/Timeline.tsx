@@ -156,7 +156,7 @@ export default function Timeline() {
           </div>
 
           {/* Mobile vertical line */}
-          <div className="absolute top-0 bottom-0 left-6 w-px bg-black/8 lg:hidden">
+          <div className="absolute top-0 bottom-0 left-4 md:left-6 w-px bg-black/8 lg:hidden">
             <motion.div
               className="absolute top-0 left-0 w-full bg-[var(--carolina-blue)]"
               style={{ height: lineHeight }}
@@ -311,7 +311,7 @@ function TimelineItem({ event, index, isActive, isEven }: TimelineItemProps) {
       </div>
 
       {/* Timeline node — mobile */}
-      <div className="absolute left-6 top-12 -translate-x-1/2 lg:hidden z-20">
+      <div className="absolute left-4 md:left-6 top-12 -translate-x-1/2 lg:hidden z-20">
         <motion.div
           className={`w-3.5 h-3.5 rounded-full border-2 transition-all duration-500 ${
             isHighlight
@@ -332,7 +332,7 @@ function TimelineItem({ event, index, isActive, isEven }: TimelineItemProps) {
 
       {/* Date Column — alternates sides on desktop */}
       <div
-        className={`pl-14 lg:pl-0 ${
+        className={`pl-10 md:pl-14 lg:pl-0 ${
           isEven
             ? "lg:pr-20 lg:text-right lg:order-1"
             : "lg:pl-20 lg:text-left lg:order-2"
@@ -390,7 +390,7 @@ function TimelineItem({ event, index, isActive, isEven }: TimelineItemProps) {
 
       {/* Content Column */}
       <div
-        className={`pl-14 lg:pl-0 ${
+        className={`pl-10 md:pl-14 lg:pl-0 ${
           isEven
             ? "lg:pl-20 lg:text-left lg:order-2"
             : "lg:pr-20 lg:text-right lg:order-1"

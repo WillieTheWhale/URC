@@ -278,7 +278,7 @@ function HighlightCard({ item, index, isActive }: HighlightCardProps) {
   return (
     <motion.div
       ref={cardRef}
-      className="horizontal-scroll-item w-[320px] md:w-[420px] lg:w-[480px] flex-shrink-0 group"
+      className="horizontal-scroll-item w-[280px] md:w-[420px] lg:w-[480px] flex-shrink-0 group"
       initial={{ opacity: 0, x: 80 }}
       animate={isActive ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 1.2, delay: 0.4 + index * 0.12, ease: EASE_EXPO_OUT }}

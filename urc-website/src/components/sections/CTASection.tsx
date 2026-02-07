@@ -196,7 +196,7 @@ export default function CTASection() {
           >
             <Link
               href="/get-involved#abstracts"
-              className="group inline-flex items-center gap-5 bg-white text-black px-10 py-6 hover:bg-[var(--carolina-blue)] hover:text-white transition-colors duration-500"
+              className="group inline-flex items-center gap-5 bg-white text-black px-7 py-5 md:px-10 md:py-6 hover:bg-[var(--carolina-blue)] hover:text-white transition-colors duration-500"
             >
               <span className="font-serif text-sm tracking-wide uppercase">
                 Submit Your Abstract
@@ -237,7 +237,7 @@ export default function CTASection() {
 
             <Link
               href="/conference"
-              className="group inline-flex items-center gap-4 border border-white/25 text-white px-10 py-6 hover:border-white hover:bg-white hover:text-black transition-all duration-500"
+              className="group inline-flex items-center gap-4 border border-white/25 text-white px-7 py-5 md:px-10 md:py-6 hover:border-white hover:bg-white hover:text-black transition-all duration-500"
             >
               <span className="font-serif text-sm tracking-wide uppercase">
                 Learn More

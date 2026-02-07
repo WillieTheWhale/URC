@@ -102,6 +102,11 @@
   display: none;
 }
 
+/* Safe area inset for notch devices */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 /* =============================================================================
    Tailwind Theme Integration
    ============================================================================= */
@@ -127,7 +132,7 @@
    ============================================================================= */
 
 html {
-  font-size: calc(16 / 375 * 100vw);
+  font-size: max(14px, calc(16 / 375 * 100vw));
 }
 
 @media (min-width: 768px) {
@@ -2413,9 +2418,23 @@ a:focus-visible {
 }
 
 .text-ultra {
-  font-size: clamp(8rem, 22vw, 22rem);
-  line-height: 0.8;
-  letter-spacing: -0.05em;
+  font-size: clamp(3.5rem, 18vw, 6rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+
+@media (min-width: 768px) {
+  .text-ultra {
+    font-size: clamp(8rem, 16vw, 12rem);
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-ultra {
+    font-size: clamp(10rem, 22vw, 22rem);
+  }
 }
 
 /* =============================================================================

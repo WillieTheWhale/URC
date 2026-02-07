@@ -176,7 +176,7 @@ export default function ConferencePage() {
                 
                 {/* Inline image carousel */}
                 <span 
-                  className={`relative w-[calc(80/375*100vw)] md:w-[calc(240/1440*100vw)] aspect-[240/130] overflow-hidden border-[3px] md:border-[6px] border-black transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${heroActive ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+                  className={`relative w-[calc(120/375*100vw)] md:w-[calc(240/1440*100vw)] min-w-[80px] aspect-[240/130] overflow-hidden border-[2px] md:border-[6px] border-black transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${heroActive ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
                   style={{ transitionDelay: '300ms' }}
                 >
                   <AnimatePresence mode="popLayout">
@@ -290,7 +290,7 @@ export default function ConferencePage() {
             <motion.div 
               ref={card1.ref}
               style={{ y: card1.y, transitionDelay: '300ms' }}
-              className={`relative w-full md:w-[calc(700/1440*100vw)] overflow-hidden border-[5px] md:border-[8px] border-solid border-black bg-white z-20 transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              className={`relative w-full md:w-[calc(700/1440*100vw)] overflow-hidden border-[3px] md:border-[8px] border-solid border-black bg-white z-20 transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
             >
               <div className="p-[calc(20/375*100vw)] md:p-[calc(50/1440*100vw)]">
                 <div className="flex items-center gap-[calc(12/375*100vw)] md:gap-[calc(20/1440*100vw)] mb-[calc(24/375*100vw)] md:mb-[calc(40/1440*100vw)]">
@@ -322,7 +322,7 @@ export default function ConferencePage() {
             <motion.div 
               ref={card2.ref}
               style={{ y: card2.y, transitionDelay: '400ms' }}
-              className={`relative md:absolute md:top-[calc(40/1440*100vw)] md:right-0 w-full md:w-[calc(700/1440*100vw)] mt-[calc(20/375*100vw)] md:mt-0 overflow-hidden border-[5px] md:border-[8px] border-solid border-black bg-black z-10 hover:z-30 transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              className={`relative md:absolute md:top-[calc(40/1440*100vw)] md:right-0 w-full md:w-[calc(700/1440*100vw)] mt-[calc(20/375*100vw)] md:mt-0 overflow-hidden border-[3px] md:border-[8px] border-solid border-black bg-black z-10 hover:z-30 transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
             >
               <div className="p-[calc(20/375*100vw)] md:p-[calc(50/1440*100vw)]">
                 <div className="flex items-center gap-[calc(12/375*100vw)] md:gap-[calc(20/1440*100vw)] mb-[calc(24/375*100vw)] md:mb-[calc(40/1440*100vw)]">
@@ -390,7 +390,7 @@ export default function ConferencePage() {
           </div>
 
           {/* Tracks grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black border-[3px] md:border-[6px] border-black">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black border-[2px] md:border-[6px] border-black">
             {tracks.map((track, i) => (
               <div 
                 key={track.id}

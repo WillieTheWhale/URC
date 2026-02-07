@@ -192,7 +192,7 @@ export default function Hero() {
                     {titleChars.map((char, i) => (
                       <span key={i} className="inline-block overflow-hidden">
                         <motion.span
-                          className="inline-block font-serif text-ultra tracking-[-0.05em] leading-[0.8]"
+                          className="inline-block font-serif text-ultra"
                           initial={{ y: "120%" }}
                           animate={charRevealed ? { y: "0%" } : {}}
                           transition={{
@@ -209,12 +209,12 @@ export default function Hero() {
                 </span>
 
                 {/* Line 2: @UNC — indented, staggered after line 1 */}
-                <span className="block ml-[12%] md:ml-[18%] lg:ml-[22%] relative">
+                <span className="block ml-[8%] md:ml-[18%] lg:ml-[22%] relative">
                   <span className="flex">
                     {subtitleChars.map((char, i) => (
                       <span key={i} className="inline-block overflow-hidden">
                         <motion.span
-                          className={`inline-block font-serif text-ultra tracking-[-0.05em] leading-[0.8] ${
+                          className={`inline-block font-serif text-ultra ${
                             char === "@" ? "italic text-[var(--carolina-blue)]" : ""
                           }`}
                           initial={{ y: "120%" }}
@@ -332,7 +332,7 @@ export default function Hero() {
         <div className="absolute inset-0 pointer-events-none">
           {/* Main Image — corner-bracketed with parallax */}
           <motion.div
-            className="absolute bottom-[12%] right-[4%] md:right-[7%] w-[48%] md:w-[36%] lg:w-[28%] aspect-[3/4] z-20"
+            className="absolute bottom-[8%] right-[3%] md:right-[7%] w-[38%] md:w-[36%] lg:w-[28%] aspect-[3/4] z-20"
           >
             <motion.div
               className={`corner-brackets relative w-full h-full overflow-hidden ${isLoaded ? 'effect-image is-active' : 'effect-image'}`}
