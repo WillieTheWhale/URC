@@ -151,7 +151,7 @@ export default function FeaturedResearch() {
 
           <Link
             href="/get-involved#abstracts"
-            className="group inline-flex items-center gap-5 bg-black text-white px-10 py-6 hover:bg-[var(--carolina-blue)] transition-colors duration-600"
+            className="group inline-flex items-center gap-5 bg-black text-white px-7 py-5 md:px-10 md:py-6 hover:bg-[var(--carolina-blue)] transition-colors duration-600"
           >
             <span className="font-serif text-sm tracking-wide uppercase">Submit Your Research</span>
             <span className="relative w-8 h-px bg-current overflow-visible">

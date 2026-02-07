@@ -57,7 +57,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[150vh] bg-white overflow-hidden"
+      className="relative w-full min-h-[110vh] md:min-h-[150vh] bg-white overflow-hidden"
     >
       {/* Film Grain Overlay */}
       <div className="grain-overlay" />

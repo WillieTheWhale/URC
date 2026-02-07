@@ -307,7 +307,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden block bg-black px-8 py-3 border-[2px] border-black safe-bottom"
+          className="lg:hidden block bg-black px-10 py-4 border-[2px] border-black safe-bottom"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
@@ -323,7 +323,7 @@ export default function Header() {
       
       {/* Bottom Left: Credits */}
       <motion.div
-        className="fixed bottom-14 md:bottom-4 left-2.5 md:left-5 z-[90] mix-blend-difference"
+        className="fixed bottom-4 left-5 z-[90] mix-blend-difference hidden md:block"
         initial={{ opacity: 0 }}
         animate={scrolled ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5 }}
@@ -345,7 +345,7 @@ export default function Header() {
 
       {/* Bottom Right: Social Links */}
       <motion.div
-        className="fixed bottom-14 md:bottom-5 right-2.5 md:right-5 z-[90] md:mix-blend-difference"
+        className="fixed bottom-5 right-5 z-[90] mix-blend-difference hidden md:block"
         initial={{ opacity: 0 }}
         animate={scrolled ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5 }}

@@ -229,7 +229,7 @@ export default function Organizers() {
 
               <Link
                 href="/get-involved#volunteer"
-                className="group inline-flex items-center gap-5 bg-white text-black px-10 py-6 hover:bg-[var(--carolina-blue)] hover:text-white transition-colors duration-500 flex-shrink-0"
+                className="group inline-flex items-center gap-5 bg-white text-black px-7 py-5 md:px-10 md:py-6 hover:bg-[var(--carolina-blue)] hover:text-white transition-colors duration-500 flex-shrink-0"
               >
                 <span className="font-serif text-sm uppercase tracking-wide">
                   Get Involved
