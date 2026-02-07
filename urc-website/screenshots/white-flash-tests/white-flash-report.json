@@ -1,0 +1,747 @@
+{
+  "timestamp": "2026-02-04T02:11:09.001Z",
+  "pages": [
+    {
+      "page": "home",
+      "elements": [],
+      "issues": []
+    },
+    {
+      "page": "about",
+      "elements": [
+        {
+          "name": "hover-element",
+          "index": 3,
+          "element": "font-serif text-fluid-cta text-white group-hover:text-black leading-none tracking-wide whitespace-no",
+          "states": [
+            {
+              "phase": "initial",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)"
+            },
+            {
+              "phase": "20ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(175, 175, 175)"
+            },
+            {
+              "phase": "50ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(29, 29, 29)"
+            },
+            {
+              "phase": "100ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "150ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "200ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "300ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "final",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "issues": [
+            {
+              "type": "invisible-text",
+              "phase": "100ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "150ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "200ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "300ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "screenshot": "./screenshots/white-flash-tests/about-hover-element-3.png"
+        }
+      ],
+      "issues": [
+        {
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "page": "conference",
+      "elements": [
+        {
+          "name": "hover-element",
+          "index": 3,
+          "element": "font-serif text-fluid-cta text-white group-hover:text-black leading-none tracking-wide whitespace-no",
+          "states": [
+            {
+              "phase": "initial",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)"
+            },
+            {
+              "phase": "20ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(171, 171, 171)"
+            },
+            {
+              "phase": "50ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(47, 47, 47)"
+            },
+            {
+              "phase": "100ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "150ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "200ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "300ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "final",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "issues": [
+            {
+              "type": "invisible-text",
+              "phase": "100ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "150ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "200ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "300ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "screenshot": "./screenshots/white-flash-tests/conference-hover-element-3.png"
+        }
+      ],
+      "issues": [
+        {
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "page": "get-involved",
+      "elements": [
+        {
+          "name": "hover-element",
+          "index": 3,
+          "element": "font-serif text-fluid-cta text-white group-hover:text-black leading-none tracking-wide whitespace-no",
+          "states": [
+            {
+              "phase": "initial",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)"
+            },
+            {
+              "phase": "20ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(106, 106, 106)"
+            },
+            {
+              "phase": "50ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(12, 12, 12)"
+            },
+            {
+              "phase": "100ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "150ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "200ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "300ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "final",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "issues": [
+            {
+              "type": "invisible-text",
+              "phase": "100ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "150ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "200ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "300ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "screenshot": "./screenshots/white-flash-tests/get-involved-hover-element-3.png"
+        }
+      ],
+      "issues": [
+        {
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "page": "sponsors",
+      "elements": [
+        {
+          "name": "hover-element",
+          "index": 3,
+          "element": "font-serif text-fluid-cta text-white group-hover:text-black leading-none tracking-wide whitespace-no",
+          "states": [
+            {
+              "phase": "initial",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)"
+            },
+            {
+              "phase": "20ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(175, 175, 175)"
+            },
+            {
+              "phase": "50ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(51, 51, 51)"
+            },
+            {
+              "phase": "100ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "150ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "200ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "300ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "final",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "issues": [
+            {
+              "type": "invisible-text",
+              "phase": "100ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "150ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "200ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "300ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "screenshot": "./screenshots/white-flash-tests/sponsors-hover-element-3.png"
+        }
+      ],
+      "issues": [
+        {
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "page": "contact",
+      "elements": [
+        {
+          "name": "hover-element",
+          "index": 3,
+          "element": "font-serif text-fluid-cta text-white group-hover:text-black leading-none tracking-wide whitespace-no",
+          "states": [
+            {
+              "phase": "initial",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "borderColor": "rgb(255, 255, 255)"
+            },
+            {
+              "phase": "20ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(138, 138, 138)"
+            },
+            {
+              "phase": "50ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(29, 29, 29)"
+            },
+            {
+              "phase": "100ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "150ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "200ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "300ms",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "phase": "final",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "issues": [
+            {
+              "type": "invisible-text",
+              "phase": "100ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "150ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "200ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            },
+            {
+              "type": "invisible-text",
+              "phase": "300ms",
+              "description": "Text and background become same color",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)"
+            }
+          ],
+          "screenshot": "./screenshots/white-flash-tests/contact-hover-element-3.png"
+        }
+      ],
+      "issues": [
+        {
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalIssues": 20,
+    "byType": {
+      "invisible-text": [
+        {
+          "page": "about",
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "about",
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "about",
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "about",
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "conference",
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "conference",
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "conference",
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "conference",
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "get-involved",
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "get-involved",
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "get-involved",
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "get-involved",
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "sponsors",
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "sponsors",
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "sponsors",
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "sponsors",
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "contact",
+          "type": "invisible-text",
+          "phase": "100ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "contact",
+          "type": "invisible-text",
+          "phase": "150ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "contact",
+          "type": "invisible-text",
+          "phase": "200ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        },
+        {
+          "page": "contact",
+          "type": "invisible-text",
+          "phase": "300ms",
+          "description": "Text and background become same color",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 0)"
+        }
+      ]
+    }
+  }
+}
