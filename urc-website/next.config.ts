@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/URC",
   images: {
     loader: "custom",
     loaderFile: "./image-loader.ts",
