@@ -41,7 +41,7 @@ const highlights = [
 export default function ConferenceHighlights() {
   const containerRef = useRef<HTMLElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-12%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -53,10 +53,7 @@ export default function ConferenceHighlights() {
   const decorY = useTransform(scrollYProgress, [0, 1], ["0%", "-35%"]);
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
-    }
+    if (isInView) setIsActive(true);
   }, [isInView]);
 
   // Track horizontal scroll progress
@@ -218,7 +215,7 @@ export default function ConferenceHighlights() {
           className="flex flex-wrap justify-between items-center gap-10 py-10 border-t-2 border-b-2 border-black/10"
           initial={{ opacity: 0, y: 30 }}
           animate={isActive ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.8, ease: EASE_EXPO_OUT }}
+          transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
         >
           {[
             { value: "2", label: "Days", sublabel: "of Programming" },
@@ -270,7 +267,7 @@ function HighlightCard({ item, index, isActive }: HighlightCardProps) {
 
   useEffect(() => {
     if (isActive) {
-      const timer = setTimeout(() => setImageActive(true), 600 + index * 180);
+      const timer = setTimeout(() => setImageActive(true), 200 + index * 100);
       return () => clearTimeout(timer);
     }
   }, [isActive, index]);

@@ -25,7 +25,7 @@ const partners = [
 
 export default function Affiliations() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-10%" });
+  const isInView = useInView(ref, { once: true, margin: "-5%" });
 
   return (
     <section className="py-16 lg:py-20 bg-white border-y border-[var(--slate-100)]">

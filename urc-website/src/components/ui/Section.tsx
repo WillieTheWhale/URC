@@ -21,7 +21,7 @@ export default function Section({
   borderTop = true,
 }: SectionProps) {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-10%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
 
   const bgClasses = {
     primary: "bg-[var(--bg-primary)]",

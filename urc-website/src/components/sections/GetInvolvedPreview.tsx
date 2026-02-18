@@ -29,7 +29,7 @@ const involvementOptions = [
 export default function GetInvolvedPreview() {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-20%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -42,8 +42,7 @@ export default function GetInvolvedPreview() {
 
   useEffect(() => {
     if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
+      setIsActive(true);
     }
   }, [isInView]);
 

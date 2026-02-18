@@ -13,14 +13,11 @@ const tiers = [
 
 export default function SponsorsPreview() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-20%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
-    }
+    if (isInView) setIsActive(true);
   }, [isInView]);
 
   return (

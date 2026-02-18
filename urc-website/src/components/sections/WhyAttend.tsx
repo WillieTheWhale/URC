@@ -48,7 +48,7 @@ const audiences = [
 
 export default function WhyAttend() {
   const containerRef = useRef<HTMLElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-12%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -60,10 +60,7 @@ export default function WhyAttend() {
   const decorY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
-    }
+    if (isInView) setIsActive(true);
   }, [isInView]);
 
   return (

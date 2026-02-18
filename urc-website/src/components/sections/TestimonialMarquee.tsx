@@ -38,7 +38,7 @@ const testimonials = [
 
 export default function TestimonialMarquee() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-10%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
 
   // Double the testimonials for seamless infinite scroll
   const doubledTestimonials = [...testimonials, ...testimonials];

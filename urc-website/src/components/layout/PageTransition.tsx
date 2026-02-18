@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function PageTransition() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +26,24 @@ export default function PageTransition() {
           style={{ transformOrigin: "top" }}
           className="loading-overlay"
         >
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+          <div className="flex flex-col justify-center items-center gap-6">
+            {/* Logo Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+            >
+              <Image
+                src="/images/urc-logo.png"
+                alt="URC Logo"
+                width={64}
+                height={64}
+                className="w-14 h-14 md:w-16 md:h-16 object-contain"
+                priority
+              />
+            </motion.div>
+
+            <div className="flex flex-row items-center gap-4 md:gap-8">
             {/* Logo Text - Part 1 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -51,6 +69,7 @@ export default function PageTransition() {
                 <span className="italic text-[var(--accent-cyan)]">@</span>UNC
               </span>
             </motion.div>
+            </div>
           </div>
 
           {/* Loading indicator */}

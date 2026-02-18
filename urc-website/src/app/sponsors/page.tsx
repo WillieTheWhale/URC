@@ -105,11 +105,11 @@ export default function SponsorsPage() {
   
   // InView states
   const heroInView = useInView(heroRef, { once: true });
-  const statsInView = useInView(statsRef, { once: true, margin: "-10%" });
-  const whyInView = useInView(whyRef, { once: true, margin: "-10%" });
-  const tiersInView = useInView(tiersRef, { once: true, margin: "-10%" });
-  const currentInView = useInView(currentRef, { once: true, margin: "-10%" });
-  const ctaInView = useInView(ctaRef, { once: true, margin: "-10%" });
+  const statsInView = useInView(statsRef, { once: true, margin: "-5%" });
+  const whyInView = useInView(whyRef, { once: true, margin: "-5%" });
+  const tiersInView = useInView(tiersRef, { once: true, margin: "-5%" });
+  const currentInView = useInView(currentRef, { once: true, margin: "-5%" });
+  const ctaInView = useInView(ctaRef, { once: true, margin: "-5%" });
   
   // Active states
   const [heroActive, setHeroActive] = useState(false);
@@ -129,23 +129,23 @@ export default function SponsorsPage() {
   }, [heroInView]);
 
   useEffect(() => {
-    if (statsInView) setTimeout(() => setStatsActive(true), 100);
+    if (statsInView) setStatsActive(true);
   }, [statsInView]);
 
   useEffect(() => {
-    if (whyInView) setTimeout(() => setWhyActive(true), 100);
+    if (whyInView) setWhyActive(true);
   }, [whyInView]);
 
   useEffect(() => {
-    if (tiersInView) setTimeout(() => setTiersActive(true), 100);
+    if (tiersInView) setTiersActive(true);
   }, [tiersInView]);
 
   useEffect(() => {
-    if (currentInView) setTimeout(() => setCurrentActive(true), 100);
+    if (currentInView) setCurrentActive(true);
   }, [currentInView]);
 
   useEffect(() => {
-    if (ctaInView) setTimeout(() => setCtaActive(true), 100);
+    if (ctaInView) setCtaActive(true);
   }, [ctaInView]);
 
   return (

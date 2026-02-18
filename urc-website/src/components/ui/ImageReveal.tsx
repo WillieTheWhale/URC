@@ -35,7 +35,7 @@ export default function ImageReveal({
   parallaxIntensity = 20,
   grayscale = false,
   delay = 0,
-  threshold = "-20%" as MarginType,
+  threshold = "-5%" as MarginType,
 }: ImageRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: threshold });

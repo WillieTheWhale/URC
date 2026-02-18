@@ -59,7 +59,7 @@ const timelineEvents = [
 
 export default function Timeline() {
   const containerRef = useRef<HTMLElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-12%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -71,10 +71,7 @@ export default function Timeline() {
   const lineHeight = useTransform(scrollYProgress, [0.15, 0.85], ["0%", "100%"]);
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
-    }
+    if (isInView) setIsActive(true);
   }, [isInView]);
 
   return (
@@ -182,7 +179,7 @@ export default function Timeline() {
           className="mt-24 md:mt-36"
           initial={{ opacity: 0, y: 30 }}
           animate={isActive ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.8, ease: EASE_EXPO_OUT }}
+          transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
         >
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 p-10 md:p-14 border-2 border-black">
             <div className="flex items-center gap-7">

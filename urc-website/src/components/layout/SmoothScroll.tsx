@@ -8,6 +8,13 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
   const lenisRef = useRef<Lenis | null>(null);
   const pathname = usePathname();
 
+  // Disable browser scroll restoration so it doesn't fight with Lenis
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -20,6 +27,10 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     });
 
     lenisRef.current = lenis;
+
+    // Ensure we start at top on initial load
+    lenis.scrollTo(0, { immediate: true });
+    window.scrollTo(0, 0);
 
     function raf(time: number) {
       lenis.raf(time);
@@ -36,10 +47,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
   // Scroll to top on route change
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
-    } else {
-      window.scrollTo(0, 0);
     }
   }, [pathname]);
 

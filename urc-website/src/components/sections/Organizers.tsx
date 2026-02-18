@@ -45,7 +45,7 @@ const openPositions = [
 
 export default function Organizers() {
   const containerRef = useRef<HTMLElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-12%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -56,10 +56,7 @@ export default function Organizers() {
   const decorY = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
-    }
+    if (isInView) setIsActive(true);
   }, [isInView]);
 
   return (
@@ -151,7 +148,7 @@ export default function Organizers() {
           className="mt-20"
           initial={{ opacity: 0, y: 30 }}
           animate={isActive ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.7, ease: EASE_EXPO_OUT }}
+          transition={{ duration: 1, delay: 0.4, ease: EASE_EXPO_OUT }}
         >
           <div className="flex items-center gap-6 mb-10">
             <h3 className="font-serif text-2xl text-black whitespace-nowrap">
@@ -169,7 +166,7 @@ export default function Organizers() {
                 animate={isActive ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.8,
-                  delay: 0.8 + index * 0.1,
+                  delay: 0.5 + index * 0.08,
                   ease: EASE_EXPO_OUT,
                 }}
               >
@@ -204,7 +201,7 @@ export default function Organizers() {
           className="mt-24 md:mt-32"
           initial={{ opacity: 0, y: 30 }}
           animate={isActive ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.9, ease: EASE_EXPO_OUT }}
+          transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
         >
           <div className="relative bg-black text-white overflow-hidden">
             {/* Subtle pattern */}
@@ -273,7 +270,7 @@ function OrganizerCard({ person, index, isActive }: OrganizerCardProps) {
     if (isActive) {
       const timer = setTimeout(
         () => setImageRevealed(true),
-        400 + index * 200,
+        200 + index * 100,
       );
       return () => clearTimeout(timer);
     }

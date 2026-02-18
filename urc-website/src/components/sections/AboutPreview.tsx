@@ -11,8 +11,8 @@ export default function AboutPreview() {
   const containerRef = useRef<HTMLElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
 
-  const isInView = useInView(containerRef, { once: true, margin: "-12%" });
-  const isStatsInView = useInView(statsRef, { once: true, margin: "-8%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
+  const isStatsInView = useInView(statsRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -25,10 +25,7 @@ export default function AboutPreview() {
   const quoteX = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"]);
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
-    }
+    if (isInView) setIsActive(true);
   }, [isInView]);
 
   return (
@@ -169,7 +166,7 @@ export default function AboutPreview() {
               className="mt-12"
               initial={{ opacity: 0, y: 20 }}
               animate={isActive ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 0.8, ease: EASE_EXPO_OUT }}
+              transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
             >
               <Link href="/" className="group inline-flex items-center gap-4">
                 <span className="font-serif text-sm text-black/60 group-hover:text-[var(--carolina-blue)] transition-colors duration-300">Learn more about URC</span>
@@ -209,7 +206,7 @@ export default function AboutPreview() {
                 className="absolute -bottom-7 -left-7 md:-left-14 bg-black text-white p-6 md:p-8 z-30"
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 animate={isActive ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ duration: 1, delay: 1.1, ease: EASE_EXPO_OUT }}
+                transition={{ duration: 1, delay: 0.6, ease: EASE_EXPO_OUT }}
               >
                 <span className="type-label-sm text-[var(--carolina-blue)] block mb-2 tracking-widest">Est.</span>
                 <span className="font-serif text-4xl md:text-5xl leading-none">2026</span>
@@ -220,7 +217,7 @@ export default function AboutPreview() {
                 className="absolute -right-3 top-1/3 hidden lg:block"
                 initial={{ opacity: 0 }}
                 animate={isActive ? { opacity: 1 } : {}}
-                transition={{ duration: 1.5, delay: 1.3 }}
+                transition={{ duration: 1.5, delay: 0.7 }}
               >
                 <div className="flex items-center gap-2">
                   <span className="w-4 h-px bg-black/20" />

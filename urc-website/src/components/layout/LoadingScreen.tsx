@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const EASE_EXPO_OUT = [0.16, 1, 0.3, 1] as const;
 const EASE_EXPO_IN_OUT = [0.87, 0, 0.13, 1] as const;
@@ -80,15 +81,31 @@ export default function LoadingScreen({
           {/* Main Content */}
           <div className="relative flex flex-col items-center gap-8">
             {/* Logo / Brand Mark */}
+            <motion.div
+              className="mb-2"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: EASE_EXPO_OUT }}
+            >
+              <Image
+                src="/images/urc-logo.png"
+                alt="URC Logo"
+                width={80}
+                height={80}
+                className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                priority
+              />
+            </motion.div>
+
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
               {/* Main Title */}
-              <motion.div 
+              <motion.div
                 className="overflow-hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <motion.h1 
+                <motion.h1
                   className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-tight"
                   initial={{ y: "100%" }}
                   animate={{ y: "0%" }}

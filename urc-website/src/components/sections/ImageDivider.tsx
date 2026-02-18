@@ -105,7 +105,7 @@ export default function ImageDivider({
               className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] italic max-w-4xl"
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, margin: "-15%" }}
+              viewport={{ once: true, margin: "-5%" }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             >
               {overlayText}
@@ -116,7 +116,7 @@ export default function ImageDivider({
                 className="mt-6 text-white/50 text-sm tracking-[0.2em] uppercase"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: "-15%" }}
+                viewport={{ once: true, margin: "-5%" }}
                 transition={{
                   duration: 1,
                   delay: 0.3,

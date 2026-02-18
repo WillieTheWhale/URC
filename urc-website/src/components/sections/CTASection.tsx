@@ -9,7 +9,7 @@ const EASE_EXPO_OUT = [0.16, 1, 0.3, 1] as const;
 
 export default function CTASection() {
   const containerRef = useRef<HTMLElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-12%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -24,10 +24,7 @@ export default function CTASection() {
   const orbTwoY = useTransform(scrollYProgress, [0, 1], ["-10%", "25%"]);
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
-    }
+    if (isInView) setIsActive(true);
   }, [isInView]);
 
   return (
@@ -263,7 +260,7 @@ export default function CTASection() {
             className="mt-14 inline-flex items-center gap-4 px-7 py-4 border border-white/8 backdrop-blur-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={isActive ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, delay: 0.8, ease: EASE_EXPO_OUT }}
+            transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
           >
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--carolina-blue)] opacity-75" />
@@ -284,7 +281,7 @@ export default function CTASection() {
           className="flex flex-wrap justify-center gap-16 md:gap-24 mt-28 pt-14 border-t border-white/8"
           initial={{ opacity: 0, y: 30 }}
           animate={isActive ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 1, ease: EASE_EXPO_OUT }}
+          transition={{ duration: 1, delay: 0.6, ease: EASE_EXPO_OUT }}
         >
           {[
             { value: "200", label: "Planned Attendees" },

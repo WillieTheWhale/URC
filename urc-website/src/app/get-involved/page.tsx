@@ -100,10 +100,10 @@ export default function GetInvolvedPage() {
   
   // InView states
   const heroInView = useInView(heroRef, { once: true });
-  const abstractInView = useInView(abstractRef, { once: true, margin: "-10%" });
-  const volunteerInView = useInView(volunteerRef, { once: true, margin: "-10%" });
-  const execInView = useInView(execRef, { once: true, margin: "-10%" });
-  const faqInView = useInView(faqRef, { once: true, margin: "-10%" });
+  const abstractInView = useInView(abstractRef, { once: true, margin: "-5%" });
+  const volunteerInView = useInView(volunteerRef, { once: true, margin: "-5%" });
+  const execInView = useInView(execRef, { once: true, margin: "-5%" });
+  const faqInView = useInView(faqRef, { once: true, margin: "-5%" });
   
   // Active states for animations
   const [heroActive, setHeroActive] = useState(false);
@@ -122,19 +122,19 @@ export default function GetInvolvedPage() {
   }, [heroInView]);
 
   useEffect(() => {
-    if (abstractInView) setTimeout(() => setAbstractActive(true), 100);
+    if (abstractInView) setAbstractActive(true);
   }, [abstractInView]);
 
   useEffect(() => {
-    if (volunteerInView) setTimeout(() => setVolunteerActive(true), 100);
+    if (volunteerInView) setVolunteerActive(true);
   }, [volunteerInView]);
 
   useEffect(() => {
-    if (execInView) setTimeout(() => setExecActive(true), 100);
+    if (execInView) setExecActive(true);
   }, [execInView]);
 
   useEffect(() => {
-    if (faqInView) setTimeout(() => setFaqActive(true), 100);
+    if (faqInView) setFaqActive(true);
   }, [faqInView]);
 
   return (

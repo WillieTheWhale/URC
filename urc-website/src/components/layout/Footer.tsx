@@ -22,14 +22,11 @@ const footerLinks = {
 
 export default function Footer() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-10%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
-    }
+    if (isInView) setIsActive(true);
   }, [isInView]);
 
   return (
@@ -84,7 +81,14 @@ export default function Footer() {
           
           {/* Brand */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-flex items-center gap-3 mb-6">
+              <Image
+                src="/images/urc-logo.png"
+                alt="URC Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain"
+              />
               <span className="font-serif text-3xl md:text-4xl">
                 URC<span className="italic text-[var(--carolina-blue)]">@</span>UNC
               </span>

@@ -51,7 +51,7 @@ export default function PullQuote({ quote, attribution, accent = true }: PullQuo
             className="pull-quote"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-12%" }}
+            viewport={{ once: true, margin: "-5%" }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
           >
             {quote.split(" ").map((word, i) => {
@@ -77,7 +77,7 @@ export default function PullQuote({ quote, attribution, accent = true }: PullQuo
               className="mt-10 type-label text-black/30 tracking-widest"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, margin: "-5%" }}
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
               — {attribution}

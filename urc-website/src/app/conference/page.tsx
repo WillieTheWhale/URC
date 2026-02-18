@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState, useCallback } from "react";
-import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring, AnimatePresence, type MotionValue } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -72,9 +72,9 @@ export default function ConferencePage() {
   
   // InView states
   const heroInView = useInView(heroRef, { once: true });
-  const scheduleInView = useInView(scheduleRef, { once: true, margin: "-15%" });
-  const tracksInView = useInView(tracksRef, { once: true, margin: "-15%" });
-  const visualInView = useInView(visualRef, { once: true, margin: "-10%" });
+  const scheduleInView = useInView(scheduleRef, { once: true, margin: "-5%" });
+  const tracksInView = useInView(tracksRef, { once: true, margin: "-5%" });
+  const visualInView = useInView(visualRef, { once: true, margin: "-5%" });
   
   // Active states
   const [heroActive, setHeroActive] = useState(false);
@@ -103,15 +103,15 @@ export default function ConferencePage() {
   }, [heroInView]);
   
   useEffect(() => {
-    if (scheduleInView) setTimeout(() => setScheduleActive(true), 100);
+    if (scheduleInView) setScheduleActive(true);
   }, [scheduleInView]);
   
   useEffect(() => {
-    if (tracksInView) setTimeout(() => setTracksActive(true), 100);
+    if (tracksInView) setTracksActive(true);
   }, [tracksInView]);
   
   useEffect(() => {
-    if (visualInView) setTimeout(() => setVisualActive(true), 100);
+    if (visualInView) setVisualActive(true);
   }, [visualInView]);
 
   // Image carousel
@@ -285,71 +285,15 @@ export default function ConferencePage() {
           </div>
 
           {/* Schedule cards - stacked Nippori style */}
-          <div className="relative">
-            {/* Friday Card */}
-            <motion.div 
-              ref={card1.ref}
-              style={{ y: card1.y, transitionDelay: '300ms' }}
-              className={`relative w-full md:w-[calc(700/1440*100vw)] overflow-hidden border-[3px] md:border-[8px] border-solid border-black bg-white z-20 transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-            >
-              <div className="p-[calc(20/375*100vw)] md:p-[calc(50/1440*100vw)]">
-                <div className="flex items-center gap-[calc(12/375*100vw)] md:gap-[calc(20/1440*100vw)] mb-[calc(24/375*100vw)] md:mb-[calc(40/1440*100vw)]">
-                  <span className="px-[calc(12/375*100vw)] md:px-[calc(20/1440*100vw)] py-[calc(6/375*100vw)] md:py-[calc(10/1440*100vw)] border-[2px] border-black font-sans text-[calc(11/375*100vw)] md:text-[calc(14/1440*100vw)] uppercase tracking-wider">
-                    Friday, Oct 2
-                  </span>
-                </div>
-                
-                <div className="border-t-[2px] border-black">
-                  {fridaySchedule.map((item, i) => (
-                    <div 
-                      key={i} 
-                      className={`group hover-light-to-dark flex gap-[calc(12/375*100vw)] md:gap-[calc(24/1440*100vw)] py-[calc(16/375*100vw)] md:py-[calc(24/1440*100vw)] border-b border-black/10 ${item.highlight ? 'bg-[#4B9CD3]/5' : ''} hover:bg-black -mx-[calc(20/375*100vw)] md:-mx-[calc(50/1440*100vw)] px-[calc(20/375*100vw)] md:px-[calc(50/1440*100vw)]`}
-                    >
-                      <div className="flex-shrink-0 w-[calc(60/375*100vw)] md:w-[calc(100/1440*100vw)]">
-                        <span className="font-serif text-[calc(12/375*100vw)] md:text-[calc(16/1440*100vw)] text-[#4B9CD3]">{item.time}</span>
-                      </div>
-                      <div>
-                        <h4 className="font-serif text-[calc(16/375*100vw)] md:text-[calc(22/1440*100vw)] text-black group-hover:text-white transition-[color] duration-200 delay-100">{item.event}</h4>
-                        <p className="font-sans text-[calc(11/375*100vw)] md:text-[calc(14/1440*100vw)] text-black/50 group-hover:text-white/50 transition-[color] duration-200 delay-100">{item.location}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Saturday Card - offset */}
-            <motion.div 
-              ref={card2.ref}
-              style={{ y: card2.y, transitionDelay: '400ms' }}
-              className={`relative md:absolute md:top-[calc(40/1440*100vw)] md:right-0 w-full md:w-[calc(700/1440*100vw)] mt-[calc(20/375*100vw)] md:mt-0 overflow-hidden border-[3px] md:border-[8px] border-solid border-black bg-black z-10 hover:z-30 transition-all duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] ${scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-            >
-              <div className="p-[calc(20/375*100vw)] md:p-[calc(50/1440*100vw)]">
-                <div className="flex items-center gap-[calc(12/375*100vw)] md:gap-[calc(20/1440*100vw)] mb-[calc(24/375*100vw)] md:mb-[calc(40/1440*100vw)]">
-                  <span className="px-[calc(12/375*100vw)] md:px-[calc(20/1440*100vw)] py-[calc(6/375*100vw)] md:py-[calc(10/1440*100vw)] bg-[#4B9CD3] text-black font-sans text-[calc(11/375*100vw)] md:text-[calc(14/1440*100vw)] uppercase tracking-wider">
-                    Saturday, Oct 3
-                  </span>
-                </div>
-                
-                <div className="border-t border-white/20">
-                  {saturdaySchedule.map((item, i) => (
-                    <div 
-                      key={i} 
-                      className={`group hover-dark-to-light flex gap-[calc(12/375*100vw)] md:gap-[calc(24/1440*100vw)] py-[calc(16/375*100vw)] md:py-[calc(24/1440*100vw)] border-b border-white/10 ${item.highlight ? 'bg-white/5' : ''} hover:bg-[#4B9CD3] -mx-[calc(20/375*100vw)] md:-mx-[calc(50/1440*100vw)] px-[calc(20/375*100vw)] md:px-[calc(50/1440*100vw)]`}
-                    >
-                      <div className="flex-shrink-0 w-[calc(60/375*100vw)] md:w-[calc(100/1440*100vw)]">
-                        <span className="font-serif text-[calc(12/375*100vw)] md:text-[calc(16/1440*100vw)] text-[#4B9CD3] group-hover:text-black transition-[color] duration-100">{item.time}</span>
-                      </div>
-                      <div>
-                        <h4 className="font-serif text-[calc(16/375*100vw)] md:text-[calc(22/1440*100vw)] text-white group-hover:text-black transition-[color] duration-100">{item.event}</h4>
-                        <p className="font-sans text-[calc(11/375*100vw)] md:text-[calc(14/1440*100vw)] text-white/50 group-hover:text-black/60 transition-[color] duration-100">{item.location}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          <ScheduleCards
+            fridaySchedule={fridaySchedule}
+            saturdaySchedule={saturdaySchedule}
+            scheduleActive={scheduleActive}
+            card1Ref={card1.ref}
+            card1Y={card1.y}
+            card2Ref={card2.ref}
+            card2Y={card2.y}
+          />
         </section>
 
         {/* =====================================================================
@@ -392,20 +336,22 @@ export default function ConferencePage() {
           {/* Tracks grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black border-[2px] md:border-[6px] border-black">
             {tracks.map((track, i) => (
-              <div 
+              <div
                 key={track.id}
-                className={`group hover-light-to-dark bg-white p-[calc(24/375*100vw)] md:p-[calc(50/1440*100vw)] min-h-[calc(200/375*100vw)] md:min-h-[calc(350/1440*100vw)] flex flex-col hover:bg-black transition-[background-color,transform,opacity] duration-500 ease-[cubic-bezier(.16,1,.3,1)] ${tracksActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ transitionDelay: `${300 + i * 100}ms` }}
+                className={`group bg-white p-[calc(24/375*100vw)] md:p-[calc(50/1440*100vw)] min-h-[calc(200/375*100vw)] md:min-h-[calc(350/1440*100vw)] flex flex-col hover:bg-black ${tracksActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                style={{
+                  transition: `background-color 0.35s cubic-bezier(.16,1,.3,1), opacity 0.8s cubic-bezier(.22,1,.36,1) ${300 + i * 100}ms, transform 0.8s cubic-bezier(.22,1,.36,1) ${300 + i * 100}ms`,
+                }}
               >
-                <span className="font-serif text-[calc(60/375*100vw)] md:text-[calc(100/1440*100vw)] leading-none text-black/10 group-hover:text-[#4B9CD3] transition-[color] duration-300">
+                <span className="font-serif text-[calc(60/375*100vw)] md:text-[calc(100/1440*100vw)] leading-none text-black/10 group-hover:text-[#4B9CD3] transition-[color] duration-200">
                   {track.id}
                 </span>
-                
+
                 <div className="mt-auto">
-                  <h3 className="font-serif text-[calc(28/375*100vw)] md:text-[calc(42/1440*100vw)] text-black group-hover:text-white group-hover:translate-x-2 transition-[color,transform] duration-300 delay-150 mb-[calc(8/375*100vw)] md:mb-[calc(16/1440*100vw)]">
+                  <h3 className="font-serif text-[calc(28/375*100vw)] md:text-[calc(42/1440*100vw)] text-black group-hover:text-white group-hover:translate-x-2 transition-[color,transform] duration-300 mb-[calc(8/375*100vw)] md:mb-[calc(16/1440*100vw)]">
                     {track.title}
                   </h3>
-                  <p className="font-sans text-[calc(12/375*100vw)] md:text-[calc(15/1440*100vw)] text-black/50 group-hover:text-white/60 transition-[color] duration-300 delay-150">
+                  <p className="font-sans text-[calc(12/375*100vw)] md:text-[calc(15/1440*100vw)] text-black/50 group-hover:text-white/60 transition-[color] duration-300">
                     {track.description}
                   </p>
                 </div>
@@ -508,5 +454,115 @@ export default function ConferencePage() {
       </main>
       <Footer />
     </>
+  );
+}
+
+/* =============================================================================
+   SCHEDULE CARDS - Exact original stacked layout with smooth hover depth swap
+   ============================================================================= */
+
+type ScheduleItem = { time: string; event: string; location: string; highlight: boolean };
+
+interface ScheduleCardsProps {
+  fridaySchedule: ScheduleItem[];
+  saturdaySchedule: ScheduleItem[];
+  scheduleActive: boolean;
+  card1Ref: React.RefObject<HTMLDivElement | null>;
+  card1Y: MotionValue<number>;
+  card2Ref: React.RefObject<HTMLDivElement | null>;
+  card2Y: MotionValue<number>;
+}
+
+function ScheduleCards({ fridaySchedule, saturdaySchedule, scheduleActive, card1Ref, card1Y, card2Ref, card2Y }: ScheduleCardsProps) {
+  const [topCard, setTopCard] = useState<"friday" | "saturday" | null>(null);
+
+  // Inline transition: entrance (opacity+transform) = 1200ms with delay, shadow = 400ms no delay
+  const fridayTransition = 'opacity 1200ms cubic-bezier(.22,1,.36,1) 300ms, transform 1200ms cubic-bezier(.22,1,.36,1) 300ms, box-shadow 400ms cubic-bezier(.22,1,.36,1) 0ms';
+  const saturdayTransition = 'opacity 1200ms cubic-bezier(.22,1,.36,1) 400ms, transform 1200ms cubic-bezier(.22,1,.36,1) 400ms, box-shadow 400ms cubic-bezier(.22,1,.36,1) 0ms';
+
+  return (
+    <div className="relative">
+      {/* Friday Card */}
+      <motion.div
+        ref={card1Ref}
+        onMouseEnter={() => setTopCard("friday")}
+        style={{
+          y: card1Y,
+          zIndex: topCard === "saturday" ? 10 : 20,
+          transition: fridayTransition,
+        }}
+        className={`relative w-full md:w-[calc(700/1440*100vw)] overflow-hidden border-[3px] md:border-[8px] border-solid border-black bg-white ${
+          scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        } ${
+          topCard === "friday" ? 'shadow-[0_20px_50px_rgba(0,0,0,0.15)]' : 'shadow-[0_0px_0px_rgba(0,0,0,0)]'
+        }`}
+      >
+        <div className="p-[calc(20/375*100vw)] md:p-[calc(50/1440*100vw)]">
+          <div className="flex items-center gap-[calc(12/375*100vw)] md:gap-[calc(20/1440*100vw)] mb-[calc(24/375*100vw)] md:mb-[calc(40/1440*100vw)]">
+            <span className="px-[calc(12/375*100vw)] md:px-[calc(20/1440*100vw)] py-[calc(6/375*100vw)] md:py-[calc(10/1440*100vw)] border-[2px] border-black font-sans text-[calc(11/375*100vw)] md:text-[calc(14/1440*100vw)] uppercase tracking-wider">
+              Friday, Oct 2
+            </span>
+          </div>
+
+          <div className="border-t-[2px] border-black">
+            {fridaySchedule.map((item, i) => (
+              <div
+                key={i}
+                className={`group hover-light-to-dark flex gap-[calc(12/375*100vw)] md:gap-[calc(24/1440*100vw)] py-[calc(16/375*100vw)] md:py-[calc(24/1440*100vw)] border-b border-black/10 ${item.highlight ? 'bg-[#4B9CD3]/5' : ''} hover:bg-black -mx-[calc(20/375*100vw)] md:-mx-[calc(50/1440*100vw)] px-[calc(20/375*100vw)] md:px-[calc(50/1440*100vw)]`}
+              >
+                <div className="flex-shrink-0 w-[calc(60/375*100vw)] md:w-[calc(100/1440*100vw)]">
+                  <span className="font-serif text-[calc(12/375*100vw)] md:text-[calc(16/1440*100vw)] text-[#4B9CD3]">{item.time}</span>
+                </div>
+                <div>
+                  <h4 className="font-serif text-[calc(16/375*100vw)] md:text-[calc(22/1440*100vw)] text-black group-hover:text-white transition-[color] duration-200 delay-100">{item.event}</h4>
+                  <p className="font-sans text-[calc(11/375*100vw)] md:text-[calc(14/1440*100vw)] text-black/50 group-hover:text-white/50 transition-[color] duration-200 delay-100">{item.location}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Saturday Card - offset and overlapping */}
+      <motion.div
+        ref={card2Ref}
+        onMouseEnter={() => setTopCard("saturday")}
+        style={{
+          y: card2Y,
+          zIndex: topCard === "saturday" ? 30 : 10,
+          transition: saturdayTransition,
+        }}
+        className={`relative md:absolute md:top-[calc(40/1440*100vw)] md:right-0 w-full md:w-[calc(700/1440*100vw)] mt-[calc(20/375*100vw)] md:mt-0 overflow-hidden border-[3px] md:border-[8px] border-solid border-black bg-black ${
+          scheduleActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        } ${
+          topCard === "saturday" ? 'shadow-[0_20px_50px_rgba(0,0,0,0.3)]' : 'shadow-[0_0px_0px_rgba(0,0,0,0)]'
+        }`}
+      >
+        <div className="p-[calc(20/375*100vw)] md:p-[calc(50/1440*100vw)]">
+          <div className="flex items-center gap-[calc(12/375*100vw)] md:gap-[calc(20/1440*100vw)] mb-[calc(24/375*100vw)] md:mb-[calc(40/1440*100vw)]">
+            <span className="px-[calc(12/375*100vw)] md:px-[calc(20/1440*100vw)] py-[calc(6/375*100vw)] md:py-[calc(10/1440*100vw)] bg-[#4B9CD3] text-black font-sans text-[calc(11/375*100vw)] md:text-[calc(14/1440*100vw)] uppercase tracking-wider">
+              Saturday, Oct 3
+            </span>
+          </div>
+
+          <div className="border-t border-white/20">
+            {saturdaySchedule.map((item, i) => (
+              <div
+                key={i}
+                className={`group hover-dark-to-light flex gap-[calc(12/375*100vw)] md:gap-[calc(24/1440*100vw)] py-[calc(16/375*100vw)] md:py-[calc(24/1440*100vw)] border-b border-white/10 ${item.highlight ? 'bg-white/5' : ''} hover:bg-[#4B9CD3] -mx-[calc(20/375*100vw)] md:-mx-[calc(50/1440*100vw)] px-[calc(20/375*100vw)] md:px-[calc(50/1440*100vw)]`}
+              >
+                <div className="flex-shrink-0 w-[calc(60/375*100vw)] md:w-[calc(100/1440*100vw)]">
+                  <span className="font-serif text-[calc(12/375*100vw)] md:text-[calc(16/1440*100vw)] text-[#4B9CD3] group-hover:text-black transition-[color] duration-100">{item.time}</span>
+                </div>
+                <div>
+                  <h4 className="font-serif text-[calc(16/375*100vw)] md:text-[calc(22/1440*100vw)] text-white group-hover:text-black transition-[color] duration-100">{item.event}</h4>
+                  <p className="font-sans text-[calc(11/375*100vw)] md:text-[calc(14/1440*100vw)] text-white/50 group-hover:text-black/60 transition-[color] duration-100">{item.location}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </div>
   );
 }

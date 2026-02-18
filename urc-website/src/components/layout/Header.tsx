@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 
@@ -28,25 +29,6 @@ const socialLinks = [
   { label: "EMAIL", short: "EM", href: "mailto:urc@unc.edu" },
 ];
 
-// Marquee content segments with styling info
-const marqueeSegments = [
-  { text: "URC@UNC", accent: true, bold: true },
-  { text: "•", accent: false, bold: false },
-  { text: "October 2-3, 2026", accent: false, bold: false },
-  { text: "•", accent: false, bold: false },
-  { text: "UNC Chapel Hill", accent: false, bold: false },
-  { text: "•", accent: false, bold: false },
-  { text: "Undergraduate Research Conference", accent: false, bold: false },
-  { text: "•", accent: false, bold: false },
-  { text: "Inaugural Edition", accent: true, bold: false },
-  { text: "•", accent: false, bold: false },
-  { text: "STEM • Social Sciences • Humanities", accent: false, bold: false },
-  { text: "•", accent: false, bold: false },
-  { text: "Submit by July 1", accent: true, bold: false },
-  { text: "•", accent: false, bold: false },
-  { text: "Share Your Research", accent: false, bold: true },
-  { text: "•", accent: false, bold: false },
-];
 
 /* =============================================================================
    COMPONENT
@@ -57,7 +39,6 @@ export default function Header() {
   const [loaded, setLoaded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [headerHover, setHeaderHover] = useState(false);
   const pathname = usePathname();
   const lastScrollY = useRef(0);
 
@@ -106,8 +87,6 @@ export default function Header() {
         initial={{ y: -100 }}
         animate={{ y: hidden ? -100 : 0 }}
         transition={{ duration: 0.5, ease: EASE_EXPO_OUT }}
-        onMouseEnter={() => setHeaderHover(true)}
-        onMouseLeave={() => setHeaderHover(false)}
       >
         {/* Top Bar Container */}
         <div 
@@ -130,10 +109,14 @@ export default function Header() {
                 className="group flex items-center gap-[calc(6/375*100vw)] md:gap-[calc(10/1440*100vw)]"
               >
                 {/* Logo Mark */}
-                <div className="relative w-[calc(24/375*100vw)] md:w-[calc(32/1440*100vw)] min-w-[22px] max-w-[32px] aspect-square bg-black flex items-center justify-center overflow-hidden group-hover:bg-[#4B9CD3] transition-colors duration-300">
-                  <span className="font-serif text-fluid-header-mark text-white font-bold leading-none">
-                    U
-                  </span>
+                <div className="relative w-[calc(24/375*100vw)] md:w-[calc(32/1440*100vw)] min-w-[22px] max-w-[32px] aspect-square flex items-center justify-center overflow-hidden">
+                  <Image
+                    src="/images/urc-logo.png"
+                    alt="URC Logo"
+                    width={32}
+                    height={32}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 
                 {/* Logo Text */}
@@ -143,90 +126,40 @@ export default function Header() {
               </Link>
             </motion.div>
 
-            {/* Center: Full-Width Scrolling Marquee */}
+            {/* Center: Static Navigation Menu */}
             <motion.div
               className="relative flex-1 overflow-hidden bg-white"
               initial={{ opacity: 0 }}
               animate={loaded ? { opacity: 1 } : {}}
               transition={{ duration: 1, delay: 0.4, ease: EASE_EXPO_OUT }}
             >
-              {/* Gradient Masks for smooth fade */}
-              <div className="absolute left-0 top-0 bottom-0 w-[calc(60/375*100vw)] md:w-[calc(80/1440*100vw)] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-[calc(60/375*100vw)] md:w-[calc(80/1440*100vw)] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-              
-              {/* Marquee Track */}
-              <div className="flex items-center h-full">
-                <div 
-                  className="flex items-center whitespace-nowrap"
-                  style={{ 
-                    animation: headerHover 
-                      ? 'marquee 40s linear infinite paused' 
-                      : 'marquee 40s linear infinite'
-                  }}
-                >
-                  {/* Repeat marquee content 4 times for seamless loop */}
-                  {[...Array(4)].map((_, repeatIndex) => (
-                    <div key={repeatIndex} className="flex items-center">
-                      {marqueeSegments.map((segment, segIndex) => (
-                        <span
-                          key={`${repeatIndex}-${segIndex}`}
-                          className={`
-                            mx-[calc(12/375*100vw)] md:mx-[calc(16/1440*100vw)]
-                            font-serif text-fluid-marquee leading-none tracking-wide
-                            ${segment.accent ? 'text-[#4B9CD3]' : 'text-black'}
-                            ${segment.bold ? 'font-semibold' : 'font-normal'}
-                            ${segment.text === '•' ? 'opacity-30' : 'opacity-100'}
-                          `}
-                        >
-                          {segment.text}
-                        </span>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Hover State: Show Nav Links */}
-              <AnimatePresence>
-                {headerHover && (
-                  <motion.div
-                    className="absolute inset-0 bg-white z-20 hidden lg:flex items-center justify-center"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+              <nav className="hidden md:flex items-center justify-center h-full gap-[calc(4/1440*100vw)]">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`
+                      relative px-[calc(16/1440*100vw)] py-2
+                      font-serif text-fluid-nav leading-none tracking-wide
+                      transition-colors duration-300
+                      ${pathname === item.href ? 'text-[#4B9CD3]' : 'text-black hover:text-[#4B9CD3]'}
+                    `}
                   >
-                    <nav className="flex items-center gap-[calc(8/1440*100vw)]">
-                      {navItems.map((item, index) => (
-                        <motion.div
-                          key={item.label}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.3, delay: index * 0.05 }}
-                        >
-                          <Link
-                            href={item.href}
-                            className={`
-                              group relative block px-[calc(16/1440*100vw)] py-2
-                              font-serif text-fluid-nav leading-none
-                              ${pathname === item.href ? 'text-[#4B9CD3]' : 'text-black'}
-                              hover:text-[#4B9CD3] transition-colors duration-300
-                            `}
-                          >
-                            <span className="relative">
-                              {item.label}
-                              {pathname === item.href && (
-                                <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#4B9CD3]" />
-                              )}
-                            </span>
-                          </Link>
-                        </motion.div>
-                      ))}
-                    </nav>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    <span className="relative">
+                      {item.label}
+                      {pathname === item.href && (
+                        <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#4B9CD3]" />
+                      )}
+                    </span>
+                  </Link>
+                ))}
+              </nav>
+              {/* Mobile: Show event info instead of nav (nav is in mobile menu) */}
+              <div className="flex md:hidden items-center justify-center h-full">
+                <span className="font-serif text-fluid-marquee leading-none tracking-wide text-black/60">
+                  Undergraduate Research Conference
+                </span>
+              </div>
             </motion.div>
 
             {/* Right: Submit Abstract CTA */}

@@ -33,7 +33,7 @@ const researchAreas = [
 
 export default function FeaturedResearch() {
   const containerRef = useRef<HTMLElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-10%" });
+  const isInView = useInView(containerRef, { once: true, margin: "-5%" });
   const [isActive, setIsActive] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -45,10 +45,7 @@ export default function FeaturedResearch() {
   const decorY = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
 
   useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => setIsActive(true), 100);
-      return () => clearTimeout(timer);
-    }
+    if (isInView) setIsActive(true);
   }, [isInView]);
 
   return (
@@ -138,7 +135,7 @@ export default function FeaturedResearch() {
           className="flex flex-col md:flex-row md:items-center justify-between gap-10 mt-20 md:mt-28 pt-14 border-t border-black/10"
           initial={{ opacity: 0, y: 30 }}
           animate={isActive ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.9, ease: EASE_EXPO_OUT }}
+          transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
         >
           <div>
             <p className="type-body-lg text-black mb-2">
@@ -188,7 +185,7 @@ function ResearchAreaCard({ area, index, isActive, isHovered, otherHovered, onHo
 
   useEffect(() => {
     if (isActive) {
-      const timer = setTimeout(() => setImageRevealed(true), 500 + index * 250);
+      const timer = setTimeout(() => setImageRevealed(true), 200 + index * 100);
       return () => clearTimeout(timer);
     }
   }, [isActive, index]);

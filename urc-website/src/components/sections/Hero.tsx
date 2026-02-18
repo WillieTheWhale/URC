@@ -431,18 +431,8 @@ export default function Hero() {
 
       {/* Bottom Section — Scrolls over sticky hero */}
       <div className="relative z-30 bg-white">
-        {/* Marquee Band — editorial divider */}
-        <div className="bg-black py-5 overflow-hidden">
-          <div className="flex whitespace-nowrap" style={{ "--duration": "40s" } as React.CSSProperties}>
-            {[...Array(5)].map((_, i) => (
-              <span key={i} className="flex-shrink-0 animate-marquee">
-                <span className="font-serif text-base md:text-lg text-white/80 tracking-[0.15em] px-8 uppercase">
-                  Discovery • Innovation • Excellence • Research • Community • Collaboration • Knowledge • Growth •{" "}
-                </span>
-              </span>
-            ))}
-          </div>
-        </div>
+        {/* Divider Band */}
+        <div className="bg-black py-1" />
       </div>
     </section>
   );

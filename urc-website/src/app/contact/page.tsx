@@ -105,9 +105,9 @@ export default function ContactPage() {
   
   // InView states
   const heroInView = useInView(heroRef, { once: true });
-  const contactInView = useInView(contactRef, { once: true, margin: "-10%" });
-  const formInView = useInView(formRef, { once: true, margin: "-10%" });
-  const faqInView = useInView(faqRef, { once: true, margin: "-10%" });
+  const contactInView = useInView(contactRef, { once: true, margin: "-5%" });
+  const formInView = useInView(formRef, { once: true, margin: "-5%" });
+  const faqInView = useInView(faqRef, { once: true, margin: "-5%" });
   
   // Active states
   const [heroActive, setHeroActive] = useState(false);
@@ -125,15 +125,15 @@ export default function ContactPage() {
   }, [heroInView]);
 
   useEffect(() => {
-    if (contactInView) setTimeout(() => setContactActive(true), 100);
+    if (contactInView) setContactActive(true);
   }, [contactInView]);
 
   useEffect(() => {
-    if (formInView) setTimeout(() => setFormActive(true), 100);
+    if (formInView) setFormActive(true);
   }, [formInView]);
 
   useEffect(() => {
-    if (faqInView) setTimeout(() => setFaqActive(true), 100);
+    if (faqInView) setFaqActive(true);
   }, [faqInView]);
 
   const handleSubmit = async (e: React.FormEvent) => {
