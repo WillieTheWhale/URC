@@ -15,20 +15,13 @@ const EASE_EXPO_IN_OUT = [0.87, 0, 0.13, 1] as const;
 
 // Full navigation items for bottom nav
 const navItems = [
-  { label: "ABOUT", href: "/", dataText: "ABOUT" },
+  { label: "HOME", href: "/", dataText: "HOME" },
+  { label: "ABOUT", href: "/about", dataText: "ABOUT" },
   { label: "CONFERENCE", href: "/conference", dataText: "CONFERENCE" },
   { label: "GET INVOLVED", href: "/get-involved", dataText: "GET INVOLVED" },
   { label: "SPONSORS", href: "/sponsors", dataText: "SPONSORS" },
   { label: "CONTACT", href: "/contact", dataText: "CONTACT" },
 ];
-
-// Social links
-const socialLinks = [
-  { label: "INSTAGRAM", short: "IG", href: "https://instagram.com/urc_unc" },
-  { label: "LINKEDIN", short: "LI", href: "https://linkedin.com/company/urc-unc" },
-  { label: "EMAIL", short: "EM", href: "mailto:urc@unc.edu" },
-];
-
 
 /* =============================================================================
    COMPONENT
@@ -101,7 +94,7 @@ export default function Header() {
             <motion.div
               className="relative z-20 flex items-center flex-shrink-0 px-[calc(12/375*100vw)] md:px-[calc(24/1440*100vw)] border-r-[2px] md:border-r-[3px] border-black bg-white"
               initial={{ opacity: 0, x: -30 }}
-              animate={loaded ? { opacity: 1, x: 0 } : {}}
+              animate={loaded ? { opacity: 1, x: 0 } : false}
               transition={{ duration: 0.8, delay: 0.2, ease: EASE_EXPO_OUT }}
             >
               <Link
@@ -130,7 +123,7 @@ export default function Header() {
             <motion.div
               className="relative flex-1 overflow-hidden bg-white"
               initial={{ opacity: 0 }}
-              animate={loaded ? { opacity: 1 } : {}}
+              animate={loaded ? { opacity: 1 } : false}
               transition={{ duration: 1, delay: 0.4, ease: EASE_EXPO_OUT }}
             >
               <nav className="hidden md:flex items-center justify-center h-full gap-[calc(4/1440*100vw)]">
@@ -166,7 +159,7 @@ export default function Header() {
             <motion.div
               className="relative z-20 flex items-center flex-shrink-0 border-l-[2px] md:border-l-[3px] border-black"
               initial={{ opacity: 0, x: 30 }}
-              animate={loaded ? { opacity: 1, x: 0 } : {}}
+              animate={loaded ? { opacity: 1, x: 0 } : false}
               transition={{ duration: 0.8, delay: 0.3, ease: EASE_EXPO_OUT }}
             >
               <Link
@@ -223,7 +216,7 @@ export default function Header() {
       <motion.div
         className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[100]"
         initial={{ y: 100, opacity: 0 }}
-        animate={loaded ? { y: 0, opacity: 1 } : {}}
+        animate={loaded ? { y: 0, opacity: 1 } : false}
         transition={{ duration: 0.8, delay: 0.8, ease: EASE_EXPO_OUT }}
       >
         {/* Desktop Nav */}
@@ -251,9 +244,9 @@ export default function Header() {
       </motion.div>
 
       {/* =====================================================================
-          BOTTOM CORNERS - Credits & Social Links
+          BOTTOM CORNER - Credits
           ===================================================================== */}
-      
+
       {/* Bottom Left: Credits */}
       <motion.div
         className="fixed bottom-4 left-5 z-[90] mix-blend-difference hidden md:block"
@@ -274,32 +267,6 @@ export default function Header() {
             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
-      </motion.div>
-
-      {/* Bottom Right: Social Links */}
-      <motion.div
-        className="fixed bottom-5 right-5 z-[90] mix-blend-difference hidden md:block"
-        initial={{ opacity: 0 }}
-        animate={scrolled ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <ul className="flex items-center">
-          {socialLinks.map((social) => (
-            <li key={social.label}>
-              <a
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link block px-1.5 md:px-2.5 py-1 md:py-2.5"
-              >
-                <span className="hidden md:block font-serif text-sm leading-none tracking-tight text-white">
-                  {social.label}
-                </span>
-                <span className="md:hidden font-serif text-[10px] text-white">{social.short}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
       </motion.div>
 
       {/* =====================================================================
@@ -369,28 +336,17 @@ export default function Header() {
                 </Link>
               </motion.div>
 
-              {/* Mobile Social Links */}
+              {/* Mobile Info */}
               <motion.div
                 className="mt-auto pt-12 border-t border-black/10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
-                <p className="font-sans text-xs text-black/40 uppercase tracking-wider mb-4">Follow Us</p>
-                <ul className="flex gap-6">
-                  {socialLinks.map((social) => (
-                    <li key={social.label}>
-                      <a
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-serif text-base text-black hover:text-[#4B9CD3] transition-colors"
-                      >
-                        {social.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex gap-6">
+                  <span className="font-sans text-xs text-black/40 uppercase tracking-wider">Oct 2-3, 2026</span>
+                  <span className="font-sans text-xs text-black/40 uppercase tracking-wider">UNC Chapel Hill</span>
+                </div>
               </motion.div>
             </nav>
           </motion.div>

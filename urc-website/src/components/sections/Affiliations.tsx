@@ -34,7 +34,7 @@ export default function Affiliations() {
           {/* Label */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            animate={isInView ? { opacity: 1, x: 0 } : false}
             transition={{ duration: 0.5 }}
             className="flex-shrink-0"
           >
@@ -49,7 +49,7 @@ export default function Affiliations() {
               <motion.div
                 key={partner.name}
                 initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                animate={isInView ? { opacity: 1, y: 0 } : false}
                 transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
                 className="group cursor-default"
                 title={partner.name}

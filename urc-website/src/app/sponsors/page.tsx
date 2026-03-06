@@ -11,9 +11,9 @@ import Footer from "@/components/layout/Footer";
    ============================================================================= */
 
 const impactStats = [
-  { value: "200", label: "Planned Attendees", description: "Students, faculty, and industry professionals" },
+  { value: "200+", label: "Planned Attendees", description: "Students, faculty, and industry professionals" },
   { value: "03", label: "Research Tracks", description: "STEM, Social Sciences, Humanities" },
-  { value: "02", label: "Conference Days", description: "October 2–3, 2026" },
+  { value: "$7.2K", label: "Conference Budget", description: "Venues, awards, materials, catering" },
   { value: "03", label: "PD Workshops", description: "Career-focused development sessions" },
 ];
 
@@ -70,19 +70,19 @@ const sponsorshipTiers = [
 const whySponsor = [
   {
     title: "Recruit Top Talent",
-    description: "Connect directly with motivated undergraduate researchers across STEM, Social Sciences, and Humanities.",
+    description: "Connect directly with motivated undergraduate researchers across STEM, Social Sciences, and Humanities. Set up a booth and interact with 200+ students in person.",
   },
   {
-    title: "Build Brand Awareness",
-    description: "Position your organization in front of UNC's brightest students and faculty mentors.",
+    title: "Fund an Award",
+    description: "Sponsor a named award category such as Best Poster, Best Oral Presentation, or the Independent Inquiry award for federally threatened research fields.",
   },
   {
-    title: "Support Education",
-    description: "Demonstrate commitment to undergraduate research and academic excellence.",
+    title: "Support Equity in Research",
+    description: "Help expand equitable access to professional research opportunities for Southern undergraduates who face a disparity in presentation venues.",
   },
   {
-    title: "Network with Academia",
-    description: "Forge relationships with faculty advisors and university departments.",
+    title: "Research Triangle Network",
+    description: "Join our growing network of biotech companies, foundations, and organizations in the Research Triangle supporting the next generation of researchers.",
   },
 ];
 
@@ -189,7 +189,7 @@ export default function SponsorsPage() {
 
             {/* Description */}
             <p className={`font-sans text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-black/60 max-w-[600px] leading-relaxed mb-[calc(32/375*100vw)] md:mb-[calc(48/1440*100vw)] transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)] delay-200 ${heroActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Support undergraduate research at UNC Chapel Hill. Your sponsorship directly enables students to share their discoveries with the academic community.
+              Support undergraduate research at UNC Chapel Hill. Your sponsorship directly enables 200 students to present their discoveries, earn merit awards, and develop professionally. We are actively seeking sponsors and partners in the Research Triangle and beyond.
             </p>
 
             {/* CTA buttons */}
@@ -201,12 +201,12 @@ export default function SponsorsPage() {
                 View Packages
                 <span>→</span>
               </a>
-              <a 
-                href="mailto:sponsors@urc.unc.edu"
+              <Link
+                href="/contact"
                 className="hover-light-to-dark-direct inline-flex items-center gap-2 px-[calc(20/375*100vw)] md:px-[calc(28/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] border-[2px] border-black text-black font-sans text-[calc(11/375*100vw)] md:text-[calc(13/1440*100vw)] hover:bg-black hover:text-white transition-colors duration-300"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -232,7 +232,7 @@ export default function SponsorsPage() {
                   <span className="block font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] text-white mb-1">
                     {stat.label}
                   </span>
-                  <span className="block font-sans text-[calc(10/375*100vw)] md:text-[calc(12/1440*100vw)] text-white/40">
+                  <span className="block font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(12/1440*100vw)] text-white/40">
                     {stat.description}
                   </span>
                 </div>
@@ -349,7 +349,7 @@ export default function SponsorsPage() {
                   {/* CTA */}
                   <div className="p-[calc(20/375*100vw)] md:p-[calc(28/1440*100vw)] pt-0">
                     <a 
-                      href="mailto:sponsors@urc.unc.edu"
+                      href="/contact"
                       className={`flex items-center justify-center w-full py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] font-sans text-[calc(11/375*100vw)] md:text-[calc(13/1440*100vw)] transition-colors duration-300 ${
                         tier.featured 
                           ? 'hover-dark-to-accent-direct bg-black text-white hover:bg-[#4B9CD3] hover:text-black' 
@@ -365,7 +365,7 @@ export default function SponsorsPage() {
 
             {/* Custom packages note */}
             <p className={`text-center font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black/50 mt-[calc(32/375*100vw)] md:mt-[calc(48/1440*100vw)] transition-all duration-1000 delay-500 ${tiersActive ? 'opacity-100' : 'opacity-0'}`}>
-              Custom sponsorship packages available. <a href="mailto:sponsors@urc.unc.edu" className="text-[#4B9CD3] hover:underline">Contact us</a> to discuss your goals.
+              Custom sponsorship packages available. <Link href="/contact" className="text-[#4B9CD3] hover:underline">Contact us</Link> to discuss your goals.
             </p>
           </div>
         </section>
@@ -393,21 +393,30 @@ export default function SponsorsPage() {
             </div>
 
             {/* Coming Soon */}
-            <div className={`border-t-[2px] border-black py-[calc(40/375*100vw)] md:py-[calc(80/1440*100vw)] text-center transition-all duration-1000 delay-200 ${currentActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <span className="font-serif text-[calc(24/375*100vw)] md:text-[calc(36/1440*100vw)] text-black/20 block mb-[calc(12/375*100vw)] md:mb-[calc(16/1440*100vw)]">
-                Coming Soon
-              </span>
-              <p className="font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black/50 max-w-[500px] mx-auto">
-                We are currently seeking sponsors and partners for our inaugural conference.
+            <div className={`border-t-[2px] border-black py-[calc(40/375*100vw)] md:py-[calc(80/1440*100vw)] transition-all duration-1000 delay-200 ${currentActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-[calc(16/375*100vw)] md:gap-[calc(24/1440*100vw)] mb-[calc(32/375*100vw)] md:mb-[calc(48/1440*100vw)]">
+                <div className="p-[calc(20/375*100vw)] md:p-[calc(32/1440*100vw)] border-[2px] border-black">
+                  <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-green-600 uppercase tracking-wider block mb-2">Secured</span>
+                  <h4 className="font-serif text-[calc(18/375*100vw)] md:text-[calc(24/1440*100vw)] text-black mb-1">Bryan Fellowship</h4>
+                  <span className="font-serif text-[calc(20/375*100vw)] md:text-[calc(28/1440*100vw)] text-[#4B9CD3]">$1,500</span>
+                </div>
+                <div className="p-[calc(20/375*100vw)] md:p-[calc(32/1440*100vw)] border-[2px] border-black">
+                  <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-green-600 uppercase tracking-wider block mb-2">Secured</span>
+                  <h4 className="font-serif text-[calc(18/375*100vw)] md:text-[calc(24/1440*100vw)] text-black mb-1">Y-Fund (Campus Y)</h4>
+                  <span className="font-serif text-[calc(20/375*100vw)] md:text-[calc(28/1440*100vw)] text-[#4B9CD3]">$1,000</span>
+                </div>
+              </div>
+              <p className="font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black/50 max-w-[500px] mx-auto text-center">
+                We are actively seeking additional sponsors and partners in the Research Triangle.
                 Contact us to learn about partnership opportunities.
               </p>
-              <a
-                href="mailto:sponsors@urc.unc.edu"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 mt-[calc(20/375*100vw)] md:mt-[calc(32/1440*100vw)] font-serif text-[calc(14/375*100vw)] md:text-[calc(16/1440*100vw)] text-[#4B9CD3] hover:text-black transition-colors"
               >
-                sponsors@urc.unc.edu
+                Contact Us
                 <span>→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -442,19 +451,19 @@ export default function SponsorsPage() {
             </p>
             
             <div className={`flex flex-col sm:flex-row items-center justify-center gap-[calc(12/375*100vw)] md:gap-[calc(16/1440*100vw)] transition-all duration-1000 delay-300 ${ctaActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              <a 
-                href="mailto:sponsors@urc.unc.edu"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 px-[calc(28/375*100vw)] md:px-[calc(40/1440*100vw)] py-[calc(14/375*100vw)] md:py-[calc(18/1440*100vw)] bg-[#4B9CD3] text-black font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] hover:bg-white transition-colors duration-300"
               >
-                Email sponsors@urc.unc.edu
+                Get in Touch
                 <span>→</span>
-              </a>
-              <a 
-                href="#"
+              </Link>
+              <a
+                href="#tiers"
                 className="inline-flex items-center gap-2 px-[calc(28/375*100vw)] md:px-[calc(40/1440*100vw)] py-[calc(14/375*100vw)] md:py-[calc(18/1440*100vw)] border border-white/20 text-white font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] hover:bg-white/10 transition-colors duration-300"
               >
-                Download Prospectus
-                <span>↓</span>
+                View Sponsorship Tiers
+                <span>↑</span>
               </a>
             </div>
           </div>

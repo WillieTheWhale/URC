@@ -10,37 +10,38 @@ const EASE_EXPO_OUT = [0.16, 1, 0.3, 1] as const;
 const committeePositions = [
   {
     role: "Director",
-    name: "Ryan P.",
+    name: "Ryan Parsaee",
     division: "Leadership",
-    description: "Overall leadership, vision, and accountability for the conference.",
+    description: "Provides overall leadership, vision, and accountability for the URC. Manages the Executive Committee, serves as primary liaison to faculty advisors and institutional partners.",
     filled: true,
-    image: "/images/scientist-portrait.jpg",
+    image: "/images/ryan-parseye.jpg",
   },
   {
-    role: "Finance Chair",
-    name: "Open Position",
-    division: "Internal Operations",
-    description: "Develop and manage the conference budget, track expenses and sponsorship funds.",
-    filled: false,
-    image: "/images/working-laptop.jpg",
+    role: "Co-Director",
+    name: "Diana Cantú Melo",
+    division: "Leadership",
+    description: "Co-leads conference planning including venue reservation, grant coordination, and internal/external operations oversight.",
+    filled: true,
+    image: "/images/diana-headshot.jpg",
   },
   {
-    role: "Logistics Lead",
-    name: "Open Position",
-    division: "Internal Operations",
-    description: "Coordinate university venues, room assignments, signage, and AV requirements.",
-    filled: false,
-    image: "/images/students-collaborating.jpg",
+    role: "Public Relations",
+    name: "Alyssa Crane",
+    division: "External Operations",
+    description: "Manages official communications, social media strategy, press releases, and institutional visibility including DTH outreach.",
+    filled: true,
+    image: "/images/alyssa-crane.png",
   },
 ];
 
 const openPositions = [
-  { role: "Conference Experience Lead", division: "Internal Operations" },
-  { role: "Grant Writing Lead", division: "External Operations" },
-  { role: "Public Relations Director", division: "External Operations" },
-  { role: "Web Development Lead", division: "External Operations" },
+  { role: "Finance Committee", division: "Internal Operations" },
+  { role: "Logistics", division: "Internal Operations" },
+  { role: "Conference Experience", division: "Internal Operations" },
+  { role: "Grant Writing", division: "External Operations" },
+  { role: "Web Development", division: "External Operations" },
   { role: "Speaker Recruitment", division: "Recruitment" },
-  { role: "Attendee Recruitment", division: "Recruitment" },
+  { role: "Presenter Recruitment", division: "Recruitment" },
 ];
 
 export default function Organizers() {
@@ -93,7 +94,7 @@ export default function Organizers() {
             <motion.div
               className="flex items-center gap-4 mb-8"
               initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1, ease: EASE_EXPO_OUT }}
             >
               <span className="type-label text-[var(--carolina-blue)]">05</span>
@@ -105,7 +106,7 @@ export default function Organizers() {
               <motion.h2
                 className="type-display-md text-black"
                 initial={{ y: "100%" }}
-                animate={isActive ? { y: "0%" } : {}}
+                animate={isActive ? { y: "0%" } : false}
                 transition={{
                   duration: 1.3,
                   delay: 0.1,
@@ -123,11 +124,12 @@ export default function Organizers() {
           <motion.p
             className="type-body text-black/50 max-w-md leading-[1.8]"
             initial={{ opacity: 0, y: 20 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, delay: 0.3, ease: EASE_EXPO_OUT }}
           >
-            A passionate team of undergraduate researchers dedicated to creating
-            opportunities for academic growth and professional development.
+            The URC Executive Board is led by a passionate team of undergraduate
+            researchers dedicated to expanding equitable access to research
+            presentation opportunities across the South.
           </motion.p>
         </div>
 
@@ -147,7 +149,7 @@ export default function Organizers() {
         <motion.div
           className="mt-20"
           initial={{ opacity: 0, y: 30 }}
-          animate={isActive ? { opacity: 1, y: 0 } : {}}
+          animate={isActive ? { opacity: 1, y: 0 } : false}
           transition={{ duration: 1, delay: 0.4, ease: EASE_EXPO_OUT }}
         >
           <div className="flex items-center gap-6 mb-10">
@@ -163,7 +165,7 @@ export default function Organizers() {
                 key={position.role}
                 className="group relative bg-[var(--color-cream)] p-7 md:p-9 hover:bg-black transition-colors duration-600"
                 initial={{ opacity: 0, y: 20 }}
-                animate={isActive ? { opacity: 1, y: 0 } : {}}
+                animate={isActive ? { opacity: 1, y: 0 } : false}
                 transition={{
                   duration: 0.8,
                   delay: 0.5 + index * 0.08,
@@ -200,7 +202,7 @@ export default function Organizers() {
         <motion.div
           className="mt-24 md:mt-32"
           initial={{ opacity: 0, y: 30 }}
-          animate={isActive ? { opacity: 1, y: 0 } : {}}
+          animate={isActive ? { opacity: 1, y: 0 } : false}
           transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
         >
           <div className="relative bg-black text-white overflow-hidden">
@@ -303,7 +305,7 @@ function OrganizerCard({ person, index, isActive }: OrganizerCardProps) {
       ref={cardRef}
       className={`group relative ${colSpan} ${topOffset}`}
       initial={{ opacity: 0, y: 50 }}
-      animate={isActive ? { opacity: 1, y: 0 } : {}}
+      animate={isActive ? { opacity: 1, y: 0 } : false}
       transition={{
         duration: 1.2,
         delay: 0.3 + index * 0.15,

@@ -12,7 +12,7 @@ import Footer from "@/components/layout/Footer";
 
 const submissionTimeline = [
   { date: "April 1, 2026", event: "Submissions Open", description: "Abstract portal opens for all undergraduate researchers", active: true },
-  { date: "July 1, 2026", event: "Submission Deadline", description: "All abstracts must be submitted by 11:59 PM EST", active: false },
+  { date: "July 1, 2026", event: "Submission Deadline", description: "All abstracts must be submitted by this date", active: false },
   { date: "Summer 2026", event: "Review & Notifications", description: "Abstracts reviewed and acceptance decisions sent via email", active: false },
   { date: "October 2–3, 2026", event: "Conference", description: "Two days of presentations, workshops, and awards at UNC Chapel Hill", active: false },
 ];
@@ -52,12 +52,15 @@ const volunteerRoles = [
 ];
 
 const execPositions = [
-  { title: "Finance Chair", department: "Internal Operations" },
-  { title: "Logistics Lead", department: "Internal Operations" },
-  { title: "Conference Experience Lead", department: "Internal Operations" },
-  { title: "Grant Writing Lead", department: "External Operations" },
-  { title: "Public Relations Director", department: "External Operations" },
-  { title: "Web Development Lead", department: "External Operations" },
+  { title: "Director", department: "Leadership", description: "Set strategic priorities and oversee the full lifecycle of the conference from planning through post-event evaluation." },
+  { title: "Finance Committee", department: "Internal Operations", description: "Develop and manage the conference budget, track expenses, and coordinate with granting bodies." },
+  { title: "Logistics", department: "Internal Operations", description: "Reserve and coordinate venues, manage room assignments, AV requirements, signage, and setup." },
+  { title: "Conference Experience", department: "Internal Operations", description: "Design registration and check-in, coordinate catering, train volunteers, and ensure attendee satisfaction." },
+  { title: "Grant Writing", department: "External Operations", description: "Identify grant opportunities, draft proposals and impact statements, and track deadlines." },
+  { title: "Public Relations", department: "External Operations", description: "Manage official communications, social media strategy, press releases, and institutional visibility." },
+  { title: "Web Development", department: "External Operations", description: "Design and maintain the conference website with updated content, accessibility, and branding." },
+  { title: "Speaker Recruitment", department: "Recruitment", description: "Identify and secure professional development and keynote speakers from academia and industry." },
+  { title: "Presenter Recruitment", department: "Recruitment", description: "Launch and manage the call for abstracts, conduct targeted outreach to diverse student populations, coordinate abstract review and acceptance decisions." },
 ];
 
 const faqs = [
@@ -75,7 +78,7 @@ const faqs = [
   },
   {
     q: "Is there a submission fee?",
-    a: "No, abstract submission is completely free. There is a nominal registration fee for accepted presenters."
+    a: "No, abstract submission is completely free. Registration details for accepted presenters will be shared upon acceptance."
   },
   {
     q: "Can I submit to multiple tracks?",
@@ -236,7 +239,7 @@ export default function GetInvolvedPage() {
                   key={req.title}
                   className="bg-white p-[calc(16/375*100vw)] md:p-[calc(32/1440*100vw)] flex flex-col"
                 >
-                  <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-black/40 uppercase tracking-wider mb-[calc(8/375*100vw)] md:mb-[calc(12/1440*100vw)]">
+                  <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-black/40 uppercase tracking-wider mb-[calc(8/375*100vw)] md:mb-[calc(12/1440*100vw)]">
                     {req.title}
                   </span>
                   <span className="font-serif text-[calc(14/375*100vw)] md:text-[calc(20/1440*100vw)] text-black leading-tight">
@@ -280,7 +283,7 @@ export default function GetInvolvedPage() {
               {/* Submission CTA Box */}
               <div className={`transition-all duration-1000 delay-400 ${abstractActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <div className="bg-black p-[calc(24/375*100vw)] md:p-[calc(48/1440*100vw)] h-full flex flex-col">
-                  <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-white/40 uppercase tracking-wider mb-[calc(16/375*100vw)] md:mb-[calc(24/1440*100vw)]">
+                  <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-white/40 uppercase tracking-wider mb-[calc(16/375*100vw)] md:mb-[calc(24/1440*100vw)]">
                     Ready to Submit?
                   </span>
                   
@@ -289,24 +292,23 @@ export default function GetInvolvedPage() {
                   </h3>
                   
                   <p className="font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-white/60 mb-[calc(24/375*100vw)] md:mb-[calc(40/1440*100vw)] flex-grow">
-                    Prepare your abstract now. Include your research question, methodology, key findings, and significance. Faculty advisor information required.
+                    Prepare your abstract now. Include your research question, methodology, key findings, and significance.
                   </p>
                   
                   <div className="space-y-3">
-                    <a 
-                      href="#"
-                      className="flex items-center justify-between w-full px-[calc(16/375*100vw)] md:px-[calc(24/1440*100vw)] py-[calc(14/375*100vw)] md:py-[calc(16/1440*100vw)] bg-[#4B9CD3] text-black font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] hover:bg-white transition-colors duration-300"
+                    <div
+                      className="flex items-center justify-between w-full px-[calc(16/375*100vw)] md:px-[calc(24/1440*100vw)] py-[calc(14/375*100vw)] md:py-[calc(16/1440*100vw)] bg-[#4B9CD3]/20 border border-[#4B9CD3]/30 text-[#4B9CD3] font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)]"
                     >
-                      <span>Start Your Submission</span>
-                      <span>→</span>
-                    </a>
-                    <a 
-                      href="#"
+                      <span>Submission portal opens April 1, 2026</span>
+                      <span>⏳</span>
+                    </div>
+                    <Link
+                      href="/contact"
                       className="flex items-center justify-between w-full px-[calc(16/375*100vw)] md:px-[calc(24/1440*100vw)] py-[calc(14/375*100vw)] md:py-[calc(16/1440*100vw)] border border-white/20 text-white font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] hover:bg-white/10 transition-colors duration-300"
                     >
-                      <span>Download Guidelines (PDF)</span>
-                      <span>↓</span>
-                    </a>
+                      <span>Questions? Contact Us</span>
+                      <span>→</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -353,10 +355,10 @@ export default function GetInvolvedPage() {
                   style={{ transitionDelay: `${200 + i * 100}ms` }}
                 >
                   <div className="flex items-start justify-between mb-[calc(12/375*100vw)] md:mb-[calc(20/1440*100vw)]">
-                    <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-[#4B9CD3] uppercase tracking-wider">
+                    <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-[#4B9CD3] uppercase tracking-wider">
                       {role.slots}
                     </span>
-                    <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-black/40 group-hover:text-white/40 transition-[color] duration-200 delay-100">
+                    <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-black/40 group-hover:text-white/40 transition-[color] duration-200 delay-100">
                       {role.commitment}
                     </span>
                   </div>
@@ -375,15 +377,15 @@ export default function GetInvolvedPage() {
             {/* Volunteer CTA */}
             <div className={`mt-[calc(24/375*100vw)] md:mt-[calc(40/1440*100vw)] flex flex-col md:flex-row md:items-center md:justify-between gap-4 transition-all duration-1000 delay-500 ${volunteerActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               <p className="font-sans text-[calc(13/375*100vw)] md:text-[calc(15/1440*100vw)] text-black/50">
-                Volunteer applications open <span className="text-black">August 2026</span>
+                Volunteer application dates to be announced
               </p>
-              <a 
-                href="#"
+              <Link
+                href="/contact"
                 className="hover-light-to-dark-direct inline-flex items-center gap-2 px-[calc(20/375*100vw)] md:px-[calc(28/1440*100vw)] py-[calc(12/375*100vw)] md:py-[calc(14/1440*100vw)] border-[2px] border-black text-black font-sans text-[calc(11/375*100vw)] md:text-[calc(13/1440*100vw)] hover:bg-black hover:text-white transition-colors duration-300"
               >
-                Get Notified
+                Contact Us for Updates
                 <span>→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -410,42 +412,42 @@ export default function GetInvolvedPage() {
                 </span>
               </h2>
               <p className={`font-sans text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-white/50 max-w-[600px] mt-[calc(16/375*100vw)] md:mt-[calc(24/1440*100vw)] transition-all duration-1000 delay-200 ${execActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                Join our executive team and help shape the inaugural Undergraduate Research Conference at UNC. Applications for the founding committee are open now.
+                The URC Executive Board is organized into three divisions: Internal Operations (Finance, Logistics, Conference Experience), External Operations (Grant Writing, PR, Web Development), and Recruitment (Speakers, Presenters). Join our founding committee and help build something lasting.
               </p>
             </div>
 
             {/* Positions grid */}
-            <div className={`grid grid-cols-2 md:grid-cols-3 gap-[calc(12/375*100vw)] md:gap-[calc(16/1440*100vw)] mb-[calc(40/375*100vw)] md:mb-[calc(60/1440*100vw)] transition-all duration-1000 delay-300 ${execActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`grid grid-cols-1 md:grid-cols-3 gap-[calc(12/375*100vw)] md:gap-[calc(16/1440*100vw)] mb-[calc(40/375*100vw)] md:mb-[calc(60/1440*100vw)] transition-all duration-1000 delay-300 ${execActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               {execPositions.map((pos, i) => (
-                <div 
+                <div
                   key={pos.title}
                   className="group p-[calc(16/375*100vw)] md:p-[calc(28/1440*100vw)] border border-white/10 hover:border-[#4B9CD3] hover:bg-[#4B9CD3]/5 transition-all duration-300"
                 >
-                  <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-white/30 uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(12/1440*100vw)]">
+                  <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-white/30 uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(12/1440*100vw)]">
                     {pos.department}
                   </span>
-                  <h4 className="font-serif text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-white group-hover:text-[#4B9CD3] transition-colors">
+                  <h4 className="font-serif text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-white group-hover:text-[#4B9CD3] transition-colors mb-[calc(4/375*100vw)] md:mb-[calc(8/1440*100vw)]">
                     {pos.title}
                   </h4>
+                  <p className="font-sans text-[calc(11/375*100vw)] md:text-[calc(12/1440*100vw)] text-white/40 leading-relaxed">
+                    {pos.description}
+                  </p>
                 </div>
               ))}
             </div>
 
             {/* Apply CTA */}
             <div className={`flex flex-col md:flex-row md:items-center gap-4 md:gap-8 transition-all duration-1000 delay-400 ${execActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              <a 
-                href="#"
+              <Link
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-[calc(24/375*100vw)] md:px-[calc(32/1440*100vw)] py-[calc(14/375*100vw)] md:py-[calc(16/1440*100vw)] bg-[#4B9CD3] text-black font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] hover:bg-white transition-colors duration-300"
               >
-                Apply for Exec Team
+                Interested? Contact Us
                 <span>→</span>
-              </a>
-              <a 
-                href="mailto:exec@urc.unc.edu"
-                className="font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] text-white/50 hover:text-[#4B9CD3] transition-colors"
-              >
-                Questions? Email exec@urc.unc.edu
-              </a>
+              </Link>
+              <span className="font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] text-white/50">
+                Reach out through our contact form to learn more
+              </span>
             </div>
           </div>
         </section>

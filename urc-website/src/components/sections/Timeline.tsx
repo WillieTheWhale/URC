@@ -28,9 +28,9 @@ const timelineEvents = [
       "Final day to submit your research abstract. All submissions undergo review.",
     status: "upcoming" as const,
     details: [
-      "11:59 PM EST deadline",
-      "Faculty advisor info required",
+      "Final day to submit",
       "Choose your track",
+      "All undergraduates eligible",
     ],
   },
   {
@@ -38,12 +38,12 @@ const timelineEvents = [
     year: "2026",
     title: "Review & Notifications",
     description:
-      "Abstracts are reviewed and accepted presenters are announced. Registration opens for all attendees.",
+      "Abstracts are reviewed and accepted presenters are announced.",
     status: "upcoming" as const,
     details: [
       "Email notifications",
       "Presentation assignments",
-      "Registration opens",
+      "Schedule finalized",
     ],
   },
   {
@@ -100,7 +100,7 @@ export default function Timeline() {
             <motion.div
               className="flex items-center gap-4 mb-8"
               initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1, ease: EASE_EXPO_OUT }}
             >
               <span className="type-label text-[var(--carolina-blue)]">04</span>
@@ -112,7 +112,7 @@ export default function Timeline() {
               <motion.h2
                 className="type-display-md text-black"
                 initial={{ y: "100%" }}
-                animate={isActive ? { y: "0%" } : {}}
+                animate={isActive ? { y: "0%" } : false}
                 transition={{ duration: 1.3, delay: 0.1, ease: EASE_EXPO_OUT }}
               >
                 Mark your{" "}
@@ -126,7 +126,7 @@ export default function Timeline() {
           <motion.div
             className="flex flex-col justify-end"
             initial={{ opacity: 0, y: 30 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, delay: 0.3, ease: EASE_EXPO_OUT }}
           >
             <p className="type-body text-black/50 max-w-md mb-8 leading-[1.8]">
@@ -178,7 +178,7 @@ export default function Timeline() {
         <motion.div
           className="mt-24 md:mt-36"
           initial={{ opacity: 0, y: 30 }}
-          animate={isActive ? { opacity: 1, y: 0 } : {}}
+          animate={isActive ? { opacity: 1, y: 0 } : false}
           transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
         >
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 p-10 md:p-14 border-2 border-black">
@@ -278,7 +278,7 @@ function TimelineItem({ event, index, isActive, isEven }: TimelineItemProps) {
         index < timelineEvents.length - 1 ? "" : ""
       }`}
       initial={{ opacity: 0, y: 40 }}
-      animate={isActive ? { opacity: 1, y: 0 } : {}}
+      animate={isActive ? { opacity: 1, y: 0 } : false}
       transition={{
         duration: 1.2,
         delay: 0.3 + index * 0.15,
@@ -298,7 +298,7 @@ function TimelineItem({ event, index, isActive, isEven }: TimelineItemProps) {
                 : "bg-white border-black/25"
           }`}
           initial={{ scale: 0 }}
-          animate={isActive ? { scale: 1 } : {}}
+          animate={isActive ? { scale: 1 } : false}
           transition={{
             duration: 0.6,
             delay: 0.5 + index * 0.15,
@@ -318,7 +318,7 @@ function TimelineItem({ event, index, isActive, isEven }: TimelineItemProps) {
                 : "bg-white border-black/25"
           }`}
           initial={{ scale: 0 }}
-          animate={isActive ? { scale: 1 } : {}}
+          animate={isActive ? { scale: 1 } : false}
           transition={{
             duration: 0.6,
             delay: 0.5 + index * 0.15,

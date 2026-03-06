@@ -14,10 +14,10 @@ const audiences = [
     href: "/get-involved#abstracts",
     image: "/images/networking.jpg",
     points: [
-      "Present your research to peers and faculty",
-      "Network with students from across the region",
-      "Develop professional communication skills",
-      "Compete for merit-based awards",
+      "Present your research at poster sessions or oral talks",
+      "Network with students from across North Carolina",
+      "Attend professional development breakout workshops",
+      "Compete for Best Poster, Best Oral, and Independent Inquiry awards",
     ],
   },
   {
@@ -26,10 +26,10 @@ const audiences = [
     href: "/get-involved#volunteer",
     image: "/images/studying-notes.jpg",
     points: [
-      "Support your students' professional development",
-      "Connect with fellow research mentors",
-      "Judge presentations and identify emerging talent",
-      "Contribute to the undergraduate research community",
+      "Support your mentees\u2019 professional development",
+      "Judge poster and oral presentations",
+      "Connect with fellow research mentors across disciplines",
+      "Help shape the future of undergraduate research at UNC",
     ],
   },
   {
@@ -38,10 +38,10 @@ const audiences = [
     href: "/sponsors",
     image: "/images/working-laptop.jpg",
     points: [
-      "Access to 200+ undergraduate researchers",
-      "Brand visibility across all conference materials",
-      "Recruitment opportunities with emerging talent",
-      "Support equitable access to professional development",
+      "Booth space alongside poster sessions for direct engagement",
+      "Brand visibility across all conference materials and signage",
+      "Opportunity to sponsor a named award category",
+      "Support equitable access to research presentation in the South",
     ],
   },
 ];
@@ -87,7 +87,7 @@ export default function WhyAttend() {
           <motion.div
             className="flex items-center justify-center gap-4 mb-8"
             initial={{ opacity: 0, y: 20 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, ease: EASE_EXPO_OUT }}
           >
             <span className="w-8 h-px bg-[var(--carolina-blue)]/40" />
@@ -101,7 +101,7 @@ export default function WhyAttend() {
             <motion.h2
               className="type-display-md text-black"
               initial={{ y: "100%" }}
-              animate={isActive ? { y: "0%" } : {}}
+              animate={isActive ? { y: "0%" } : false}
               transition={{
                 duration: 1.3,
                 delay: 0.1,
@@ -118,7 +118,7 @@ export default function WhyAttend() {
           <motion.p
             className="type-body text-black/45 mt-6 max-w-lg mx-auto leading-[1.8]"
             initial={{ opacity: 0, y: 20 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, delay: 0.3, ease: EASE_EXPO_OUT }}
           >
             Whether you&apos;re presenting research, mentoring students, or
@@ -130,7 +130,7 @@ export default function WhyAttend() {
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"
           initial={{ opacity: 0, y: 30 }}
-          animate={isActive ? { opacity: 1, y: 0 } : {}}
+          animate={isActive ? { opacity: 1, y: 0 } : false}
           transition={{ duration: 1.2, delay: 0.3, ease: EASE_EXPO_OUT }}
         >
           {audiences.map((audience, index) => {

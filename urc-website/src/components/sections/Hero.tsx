@@ -95,7 +95,7 @@ export default function Hero() {
           <motion.div
             className="w-px h-40 bg-[var(--carolina-blue)]"
             initial={{ scaleY: 0, opacity: 0 }}
-            animate={isLoaded ? { scaleY: 1, opacity: 0.4 } : {}}
+            animate={isLoaded ? { scaleY: 1, opacity: 0.4 } : false}
             transition={{ duration: 2, delay: 1.5, ease: EASE_EXPO_OUT }}
           />
         </motion.div>
@@ -106,14 +106,14 @@ export default function Hero() {
           <motion.div
             className="w-32 h-px bg-[var(--carolina-blue)]"
             initial={{ scaleX: 0, opacity: 0 }}
-            animate={isLoaded ? { scaleX: 1, opacity: 0.4 } : {}}
+            animate={isLoaded ? { scaleX: 1, opacity: 0.4 } : false}
             transition={{ duration: 2, delay: 1.7, ease: EASE_EXPO_OUT }}
           />
           {/* Cross accent */}
           <motion.div
             className="absolute top-0 right-0 w-px h-8 bg-[var(--carolina-blue)] origin-top"
             initial={{ scaleY: 0, opacity: 0 }}
-            animate={isLoaded ? { scaleY: 1, opacity: 0.3 } : {}}
+            animate={isLoaded ? { scaleY: 1, opacity: 0.3 } : false}
             transition={{ duration: 1.5, delay: 2, ease: EASE_EXPO_OUT }}
           />
         </motion.div>
@@ -122,7 +122,7 @@ export default function Hero() {
         <motion.div
           className="floating-label left-6 top-1/2 hidden xl:block"
           initial={{ opacity: 0 }}
-          animate={isLoaded ? { opacity: 0.5 } : {}}
+          animate={isLoaded ? { opacity: 0.5 } : false}
           transition={{ duration: 1.5, delay: 2.2 }}
         >
           Inaugural Edition — 2026
@@ -140,7 +140,7 @@ export default function Hero() {
                 <motion.span
                   className="type-label text-[var(--carolina-blue)]"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : false}
                   transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
                 >
                   Vol. 01
@@ -148,13 +148,13 @@ export default function Hero() {
                 <motion.div
                   className="w-8 h-px bg-black/20"
                   initial={{ scaleX: 0 }}
-                  animate={isLoaded ? { scaleX: 1 } : {}}
+                  animate={isLoaded ? { scaleX: 1 } : false}
                   transition={{ duration: 1.2, delay: 0.6, ease: EASE_EXPO_OUT }}
                 />
                 <motion.span
                   className="type-label text-black/40"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : false}
                   transition={{ duration: 1, delay: 0.7, ease: EASE_EXPO_OUT }}
                 >
                   Inaugural Edition
@@ -165,7 +165,7 @@ export default function Hero() {
                 <motion.span
                   className="type-label"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : false}
                   transition={{ duration: 1, delay: 0.8, ease: EASE_EXPO_OUT }}
                 >
                   October 02—03
@@ -173,7 +173,7 @@ export default function Hero() {
                 <motion.span
                   className="font-serif text-2xl md:text-3xl text-black/20 leading-none"
                   initial={{ opacity: 0 }}
-                  animate={isLoaded ? { opacity: 1 } : {}}
+                  animate={isLoaded ? { opacity: 1 } : false}
                   transition={{ duration: 1.5, delay: 1, ease: EASE_EXPO_OUT }}
                 >
                   '26
@@ -194,7 +194,7 @@ export default function Hero() {
                         <motion.span
                           className="inline-block font-serif text-ultra"
                           initial={{ y: "120%" }}
-                          animate={charRevealed ? { y: "0%" } : {}}
+                          animate={charRevealed ? { y: "0%" } : false}
                           transition={{
                             duration: 1.6,
                             delay: 0.15 + i * 0.08,
@@ -218,7 +218,7 @@ export default function Hero() {
                             char === "@" ? "italic text-[var(--carolina-blue)]" : ""
                           }`}
                           initial={{ y: "120%" }}
-                          animate={charRevealed ? { y: "0%" } : {}}
+                          animate={charRevealed ? { y: "0%" } : false}
                           transition={{
                             duration: 1.6,
                             delay: 0.5 + i * 0.07,
@@ -235,7 +235,7 @@ export default function Hero() {
                   <motion.div
                     className="absolute -right-4 md:-right-8 top-1/2 -translate-y-1/2 hidden lg:flex items-center gap-3"
                     initial={{ opacity: 0, x: -20 }}
-                    animate={isLoaded ? { opacity: 1, x: 0 } : {}}
+                    animate={isLoaded ? { opacity: 1, x: 0 } : false}
                     transition={{ duration: 1.2, delay: 1.5, ease: EASE_EXPO_OUT }}
                   >
                     <span className="w-6 h-px bg-black/20" />
@@ -249,7 +249,7 @@ export default function Hero() {
                 <motion.div
                   className="absolute -top-[15%] right-0 hidden xl:block pointer-events-none select-none"
                   initial={{ opacity: 0, scale: 0.9 }}
-                  animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
+                  animate={isLoaded ? { opacity: 1, scale: 1 } : false}
                   transition={{ duration: 2, delay: 1.2, ease: EASE_EXPO_OUT }}
                 >
                   <span className="font-serif text-[clamp(200px,28vw,450px)] leading-none text-black/[0.015]">
@@ -262,19 +262,20 @@ export default function Hero() {
               <motion.div
                 className="flex flex-col md:flex-row md:items-end justify-between mt-10 md:mt-16 gap-8"
                 initial={{ opacity: 0, y: 40 }}
-                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                animate={isLoaded ? { opacity: 1, y: 0 } : false}
                 transition={{ duration: 1.2, delay: 1.1, ease: EASE_EXPO_OUT }}
               >
                 <div className="max-w-lg">
                   <p className="type-body-lg text-black/50 leading-relaxed">
                     The inaugural{" "}
                     <span className="text-black font-medium italic">Undergraduate Research Conference</span>
-                    {" "}at UNC Chapel Hill — a platform celebrating
+                    {" "}at UNC Chapel Hill &mdash; expanding equitable access to
                   </p>
                   <p className="type-body-lg text-black/50 leading-relaxed mt-1">
-                    <span className="text-[var(--carolina-blue)] font-medium">student discovery</span>
+                    <span className="text-[var(--carolina-blue)] font-medium">research presentation</span>
                     {" "}and{" "}
-                    <span className="text-[var(--carolina-blue)] font-medium">academic excellence</span>.
+                    <span className="text-[var(--carolina-blue)] font-medium">professional development</span>
+                    {" "}for Southern undergraduates.
                   </p>
                 </div>
 
@@ -300,7 +301,7 @@ export default function Hero() {
             <motion.div
               className="flex flex-wrap items-end gap-10 md:gap-20 pt-8 border-t border-black/10"
               initial={{ opacity: 0, y: 20 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              animate={isLoaded ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1.2, delay: 1.4, ease: EASE_EXPO_OUT }}
             >
               {[
@@ -313,7 +314,7 @@ export default function Hero() {
                   key={stat.label}
                   className="group cursor-default"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : false}
                   transition={{ duration: 0.8, delay: 1.5 + i * 0.1, ease: EASE_EXPO_OUT }}
                 >
                   <span className="block font-serif text-3xl md:text-4xl lg:text-5xl leading-none group-hover:text-[var(--carolina-blue)] transition-colors duration-500">
@@ -357,7 +358,7 @@ export default function Hero() {
             <motion.div
               className="absolute -bottom-5 -left-5 md:-left-8 bg-white border-2 border-black p-4 md:p-5 z-30"
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              animate={isLoaded ? { opacity: 1, y: 0, scale: 1 } : {}}
+              animate={isLoaded ? { opacity: 1, y: 0, scale: 1 } : false}
               transition={{ duration: 1, delay: 1.8, ease: EASE_EXPO_OUT }}
             >
               <span className="type-label-sm text-[var(--carolina-blue)] block">Featured</span>
@@ -369,7 +370,7 @@ export default function Hero() {
           <motion.div
             className="absolute top-[22%] left-[3%] w-[22%] md:w-[16%] lg:w-[13%] aspect-square z-10 hidden md:block"
             initial={{ opacity: 0, scale: 0.85 }}
-            animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
+            animate={isLoaded ? { opacity: 1, scale: 1 } : false}
             transition={{ duration: 1.5, delay: 1.6, ease: EASE_EXPO_OUT }}
           >
             <motion.div
@@ -395,7 +396,7 @@ export default function Hero() {
           <motion.div
             className="absolute top-[60%] left-[38%] w-[8%] aspect-[4/5] z-5 hidden xl:block"
             initial={{ opacity: 0 }}
-            animate={isLoaded ? { opacity: 0.6 } : {}}
+            animate={isLoaded ? { opacity: 0.6 } : false}
             transition={{ duration: 2, delay: 2, ease: EASE_EXPO_OUT }}
           >
             <div className="relative w-full h-full overflow-hidden">
@@ -412,20 +413,24 @@ export default function Hero() {
 
         {/* Scroll Indicator — pulsing line */}
         <motion.div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
           style={{ opacity }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20"
-          initial={{ opacity: 0 }}
-          animate={isLoaded ? { opacity: 1 } : {}}
-          transition={{ duration: 1.5, delay: 2.5, ease: EASE_EXPO_OUT }}
         >
-          <span className="type-label-sm text-black/25 tracking-[0.3em]">SCROLL</span>
-          <div className="relative w-px h-10 bg-black/10">
-            <motion.div
-              className="absolute top-0 left-0 w-full bg-[var(--carolina-blue)]"
-              animate={{ height: ["0%", "100%", "0%"], top: ["0%", "0%", "100%"] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </div>
+          <motion.div
+            className="flex flex-col items-center gap-4"
+            initial={{ opacity: 0 }}
+            animate={isLoaded ? { opacity: 1 } : false}
+            transition={{ duration: 1.5, delay: 2.5, ease: EASE_EXPO_OUT }}
+          >
+            <span className="type-label-sm text-black/25 tracking-[0.3em]">SCROLL</span>
+            <div className="relative w-px h-10 bg-black/10">
+              <motion.div
+                className="absolute top-0 left-0 w-full bg-[var(--carolina-blue)]"
+                animate={{ height: ["0%", "100%", "0%"], top: ["0%", "0%", "100%"] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 

@@ -54,7 +54,7 @@ export default function AboutPreview() {
             <motion.div
               className="flex items-center gap-4 mb-8"
               initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1, ease: EASE_EXPO_OUT }}
             >
               <span className="type-label text-[var(--carolina-blue)]">01</span>
@@ -66,7 +66,7 @@ export default function AboutPreview() {
               <motion.h2
                 className="type-display-lg text-black"
                 initial={{ y: "100%" }}
-                animate={isActive ? { y: "0%" } : {}}
+                animate={isActive ? { y: "0%" } : false}
                 transition={{ duration: 1.4, delay: 0.1, ease: EASE_EXPO_OUT }}
               >
                 Our Mission
@@ -77,11 +77,11 @@ export default function AboutPreview() {
           <div className="lg:col-span-7 lg:flex lg:items-end lg:justify-end">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1, delay: 0.3, ease: EASE_EXPO_OUT }}
             >
               <Link
-                href="/"
+                href="/about"
                 className="group hover-light-to-dark inline-flex items-center gap-5 border-2 border-black rounded-full px-7 py-4 hover:bg-black hover:text-white transition-all duration-500"
               >
                 <span className="font-serif text-sm">Read Full Story</span>
@@ -110,7 +110,7 @@ export default function AboutPreview() {
             <motion.blockquote
               className="relative mb-16"
               initial={{ opacity: 0, y: 50 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1.4, delay: 0.2, ease: EASE_EXPO_OUT }}
             >
               {/* Dramatic quote mark */}
@@ -119,22 +119,22 @@ export default function AboutPreview() {
               </span>
 
               <p className="type-display-sm leading-[1.15] text-black relative z-10">
-                We believe every question{" "}
-                <span className="italic text-[var(--carolina-blue)]">deserves an audience.</span>
+                A research conference for undergraduates,{" "}
+                <span className="italic text-[var(--carolina-blue)]">by undergraduates.</span>
               </p>
 
               <motion.div
                 className="w-16 h-px bg-[var(--carolina-blue)] mt-8"
                 initial={{ scaleX: 0 }}
-                animate={isActive ? { scaleX: 1 } : {}}
+                animate={isActive ? { scaleX: 1 } : false}
                 transition={{ duration: 1.2, delay: 0.8, ease: EASE_EXPO_OUT }}
                 style={{ transformOrigin: "left" }}
               />
 
               <p className="type-body-lg text-black/50 mt-8 max-w-lg leading-[1.8] drop-cap">
                 Recognizing a disparity in professional development opportunities for
-                Southern students, we founded this conference to provide avenues for
-                undergraduate research presentation and career growth.
+                Southern students to present and develop research communication, we
+                founded this conference to provide those avenues in North Carolina and beyond.
               </p>
             </motion.blockquote>
 
@@ -142,21 +142,21 @@ export default function AboutPreview() {
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-10 border-t border-black/10"
               initial={{ opacity: 0, y: 30 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1, delay: 0.6, ease: EASE_EXPO_OUT }}
             >
               <div>
                 <h4 className="type-label mb-5 text-[var(--carolina-blue)]">The Goal</h4>
                 <p className="type-body text-black/60 leading-[1.8]">
-                  To democratize access to academic feedback and professional networking
-                  for undergraduate researchers across all disciplines.
+                  Expand access to professional research presentation opportunities for
+                  Southern undergraduates and strengthen scientific communication and career readiness.
                 </p>
               </div>
               <div>
                 <h4 className="type-label mb-5 text-[var(--carolina-blue)]">The Scope</h4>
                 <p className="type-body text-black/60 leading-[1.8]">
-                  From biochemistry to art history, our multi-track format ensures
-                  specialized feedback for every presenter.
+                  200 attendees across STEM, Social Sciences, and Humanities tracks with
+                  poster sessions, oral presentations, professional development, and merit awards.
                 </p>
               </div>
             </motion.div>
@@ -165,10 +165,10 @@ export default function AboutPreview() {
             <motion.div
               className="mt-12"
               initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
             >
-              <Link href="/" className="group inline-flex items-center gap-4">
+              <Link href="/about" className="group inline-flex items-center gap-4">
                 <span className="font-serif text-sm text-black/60 group-hover:text-[var(--carolina-blue)] transition-colors duration-300">Learn more about URC</span>
                 <span className="relative w-8 h-px bg-black/30 group-hover:bg-[var(--carolina-blue)] transition-colors duration-300 overflow-visible">
                   <span className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 border-t border-r border-current rotate-45 transition-transform duration-300 group-hover:translate-x-1" />
@@ -183,7 +183,7 @@ export default function AboutPreview() {
             <motion.div
               className="relative w-full md:w-[88%] lg:w-[85%] ml-auto"
               initial={{ opacity: 0 }}
-              animate={isActive ? { opacity: 1 } : {}}
+              animate={isActive ? { opacity: 1 } : false}
               transition={{ duration: 1, delay: 0.5 }}
             >
               <div className={`corner-brackets relative aspect-[4/5] overflow-hidden img-hover-zoom ${isActive ? 'effect-image is-active' : 'effect-image'}`}>
@@ -205,7 +205,7 @@ export default function AboutPreview() {
               <motion.div
                 className="absolute -bottom-7 -left-7 md:-left-14 bg-black text-white p-6 md:p-8 z-30"
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                animate={isActive ? { opacity: 1, y: 0, scale: 1 } : {}}
+                animate={isActive ? { opacity: 1, y: 0, scale: 1 } : false}
                 transition={{ duration: 1, delay: 0.6, ease: EASE_EXPO_OUT }}
               >
                 <span className="type-label-sm text-[var(--carolina-blue)] block mb-2 tracking-widest">Est.</span>
@@ -216,7 +216,7 @@ export default function AboutPreview() {
               <motion.div
                 className="absolute -right-3 top-1/3 hidden lg:block"
                 initial={{ opacity: 0 }}
-                animate={isActive ? { opacity: 1 } : {}}
+                animate={isActive ? { opacity: 1 } : false}
                 transition={{ duration: 1.5, delay: 0.7 }}
               >
                 <div className="flex items-center gap-2">
@@ -232,7 +232,7 @@ export default function AboutPreview() {
             <motion.div
               className="absolute -top-16 -left-10 w-[38%] aspect-square hidden lg:block"
               initial={{ opacity: 0, scale: 0.85 }}
-              animate={isActive ? { opacity: 1, scale: 1 } : {}}
+              animate={isActive ? { opacity: 1, scale: 1 } : false}
               transition={{ duration: 1.2, delay: 0.7, ease: EASE_EXPO_OUT }}
             >
               <div className={`img-blend-carolina relative w-full h-full overflow-hidden ${isActive ? 'effect-diagonal-reveal is-active' : 'effect-diagonal-reveal'}`}
@@ -260,7 +260,7 @@ export default function AboutPreview() {
           ref={statsRef}
           className="mt-28 md:mt-40 pt-16 border-t-2 border-black"
           initial={{ opacity: 0 }}
-          animate={isStatsInView ? { opacity: 1 } : {}}
+          animate={isStatsInView ? { opacity: 1 } : false}
           transition={{ duration: 1, ease: EASE_EXPO_OUT }}
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-black">
@@ -274,7 +274,7 @@ export default function AboutPreview() {
                 key={stat.label}
                 className="group hover-light-to-dark relative bg-white p-8 md:p-10 cursor-default hover:bg-black transition-colors duration-700"
                 initial={{ opacity: 0, y: 30 }}
-                animate={isStatsInView ? { opacity: 1, y: 0 } : {}}
+                animate={isStatsInView ? { opacity: 1, y: 0 } : false}
                 transition={{ duration: 0.8, delay: 0.12 * index, ease: EASE_EXPO_OUT }}
               >
                 <span className="block font-serif text-4xl md:text-5xl lg:text-6xl leading-none group-hover:text-[var(--carolina-blue)] transition-[color] duration-300 delay-100">

@@ -7,16 +7,16 @@ import Link from "next/link";
 
 const footerLinks = {
   sitemap: [
-    { label: "About", href: "/" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
     { label: "Conference", href: "/conference" },
     { label: "Get Involved", href: "/get-involved" },
     { label: "Sponsors", href: "/sponsors" },
     { label: "Contact", href: "/contact" },
   ],
-  socials: [
-    { label: "Instagram", href: "https://instagram.com/urc_unc" },
-    { label: "LinkedIn", href: "https://linkedin.com/company/urc-unc" },
-    { label: "Twitter", href: "https://twitter.com/urc_unc" },
+  resources: [
+    { label: "UNC Chapel Hill", href: "https://unc.edu" },
+    { label: "UNC Office of Research", href: "https://research.unc.edu" },
   ],
 };
 
@@ -108,12 +108,12 @@ export default function Footer() {
             {/* Sitemap */}
             <div>
               <h4 className="type-label text-black/40 mb-6">Sitemap</h4>
-              <ul className="space-y-3">
+              <ul className="space-y-1">
                 {footerLinks.sitemap.map((item, index) => (
                   <li key={item.label}>
-                    <Link 
-                      href={item.href} 
-                      className="link group inline-flex items-center gap-2"
+                    <Link
+                      href={item.href}
+                      className="link group inline-flex items-center gap-2 py-2"
                     >
                       <span className="font-serif italic text-lg md:text-xl group-hover:text-[var(--carolina-blue)] transition-colors">
                         {item.label}
@@ -124,24 +124,24 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Socials */}
+            {/* Resources */}
             <div>
-              <h4 className="type-label text-black/40 mb-6">Follow</h4>
-              <ul className="space-y-3">
-                {footerLinks.socials.map((item) => (
+              <h4 className="type-label text-black/40 mb-6">Resources</h4>
+              <ul className="space-y-1">
+                {footerLinks.resources.map((item) => (
                   <li key={item.label}>
-                    <a 
-                      href={item.href} 
-                      target="_blank" 
+                    <a
+                      href={item.href}
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="link group inline-flex items-center gap-2"
+                      className="link group inline-flex items-center gap-2 py-2"
                     >
                       <span className="font-serif italic text-lg md:text-xl group-hover:text-[var(--carolina-blue)] transition-colors">
                         {item.label}
                       </span>
-                      <svg 
-                        className="w-2.5 h-2.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" 
-                        viewBox="0 0 8 8" 
+                      <svg
+                        className="w-2.5 h-2.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                        viewBox="0 0 8 8"
                         fill="none"
                       >
                         <path fill="currentColor" d="m7.248.5.3526.3535L.707 7.7354l-.3535-.3545L0 7.0273 6.8945.1465z"/>
@@ -156,34 +156,19 @@ export default function Footer() {
             {/* Contact */}
             <div>
               <h4 className="type-label text-black/40 mb-6">Contact</h4>
-              <ul className="space-y-3">
+              <ul className="space-y-1">
                 <li>
-                  <a 
-                    href="mailto:urc@unc.edu" 
-                    className="link font-serif italic text-lg md:text-xl hover:text-[var(--carolina-blue)] transition-colors"
+                  <Link
+                    href="/contact"
+                    className="link font-serif italic text-lg md:text-xl hover:text-[var(--carolina-blue)] transition-colors py-2 inline-block"
                   >
-                    urc@unc.edu
-                  </a>
+                    Get in Touch
+                  </Link>
                 </li>
                 <li>
-                  <a 
-                    href="https://unc.edu" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link group inline-flex items-center gap-2"
-                  >
-                    <span className="font-serif italic text-lg md:text-xl group-hover:text-[var(--carolina-blue)] transition-colors">
-                      UNC Chapel Hill
-                    </span>
-                    <svg 
-                      className="w-2.5 h-2.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" 
-                      viewBox="0 0 8 8" 
-                      fill="none"
-                    >
-                      <path fill="currentColor" d="m7.248.5.3526.3535L.707 7.7354l-.3535-.3545L0 7.0273 6.8945.1465z"/>
-                      <path fill="currentColor" d="M7.748 0v6.497h-1V1H1.251V0z"/>
-                    </svg>
-                  </a>
+                  <span className="font-serif italic text-lg md:text-xl text-black/40 py-2 inline-block">
+                    Chapel Hill, NC
+                  </span>
                 </li>
               </ul>
             </div>

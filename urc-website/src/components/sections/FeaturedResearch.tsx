@@ -11,22 +11,22 @@ const researchAreas = [
   {
     id: "01",
     title: "STEM",
-    subtitle: "Biology • Chemistry • Physics • Engineering • Computer Science",
-    description: "Present research across the natural and applied sciences — from molecular biology to environmental science — with specialized feedback from faculty reviewers.",
+    subtitle: "Biology \u2022 Chemistry \u2022 Physics \u2022 Engineering \u2022 Computer Science",
+    description: "Present research across the natural and applied sciences with specialized feedback from faculty, graduate students, and undergraduate honors thesis writers. Includes the Independent Inquiry award for federally threatened research fields.",
     image: "/images/research-microscope.jpg",
   },
   {
     id: "02",
     title: "Social Sciences",
-    subtitle: "Psychology • Sociology • Economics • Political Science",
-    description: "Share insights into human behavior, social structures, economic systems, and public policy with peers and mentors from across the region.",
+    subtitle: "Psychology \u2022 Sociology \u2022 Economics \u2022 Political Science \u2022 Public Health",
+    description: "Share insights into human behavior, social structures, economic systems, and public policy. Priority recognition for minoritized-disparity focused research and public health work.",
     image: "/images/students-collaborating.jpg",
   },
   {
     id: "03",
     title: "Humanities & Arts",
-    subtitle: "History • Literature • Philosophy • Visual Arts",
-    description: "Present creative scholarship spanning historical analysis, literary criticism, philosophical inquiry, and artistic expression.",
+    subtitle: "History \u2022 Literature \u2022 Philosophy \u2022 Visual Arts",
+    description: "Present creative scholarship spanning historical analysis, literary criticism, philosophical inquiry, and artistic expression. Our interdisciplinary format ensures specialized feedback for every presenter.",
     image: "/images/graduation.jpg",
   },
 ];
@@ -82,7 +82,7 @@ export default function FeaturedResearch() {
             <motion.div
               className="flex items-center gap-4 mb-8"
               initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1, ease: EASE_EXPO_OUT }}
             >
               <span className="type-label text-[var(--carolina-blue)]">02</span>
@@ -94,7 +94,7 @@ export default function FeaturedResearch() {
               <motion.h2
                 className="type-display-md text-black"
                 initial={{ y: "100%" }}
-                animate={isActive ? { y: "0%" } : {}}
+                animate={isActive ? { y: "0%" } : false}
                 transition={{ duration: 1.3, delay: 0.1, ease: EASE_EXPO_OUT }}
               >
                 Featured{" "}
@@ -106,7 +106,7 @@ export default function FeaturedResearch() {
           <motion.p
             className="type-body text-black/50 max-w-md leading-[1.8]"
             initial={{ opacity: 0, y: 20 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, delay: 0.3, ease: EASE_EXPO_OUT }}
           >
             Our multi-track format ensures specialized feedback and
@@ -134,7 +134,7 @@ export default function FeaturedResearch() {
         <motion.div
           className="flex flex-col md:flex-row md:items-center justify-between gap-10 mt-20 md:mt-28 pt-14 border-t border-black/10"
           initial={{ opacity: 0, y: 30 }}
-          animate={isActive ? { opacity: 1, y: 0 } : {}}
+          animate={isActive ? { opacity: 1, y: 0 } : false}
           transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
         >
           <div>
@@ -193,11 +193,9 @@ function ResearchAreaCard({ area, index, isActive, isHovered, otherHovered, onHo
   return (
     <motion.div
       ref={cardRef}
-      className={`group relative bg-white overflow-hidden transition-opacity duration-500 ${
-        otherHovered ? 'opacity-60' : 'opacity-100'
-      }`}
+      className="group relative bg-white overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
-      animate={isActive ? { opacity: otherHovered ? 0.6 : 1, y: 0 } : {}}
+      animate={isActive ? { opacity: otherHovered ? 0.6 : 1, y: 0 } : false}
       transition={{ duration: 1.2, delay: 0.2 + index * 0.15, ease: EASE_EXPO_OUT }}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}

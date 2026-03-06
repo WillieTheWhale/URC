@@ -10,51 +10,47 @@ import Footer from "@/components/layout/Footer";
    DATA
    ============================================================================= */
 
-const contactMethods = [
+const contactTopics = [
   {
     label: "General Inquiries",
-    value: "urc@unc.edu",
-    href: "mailto:urc@unc.edu",
+    value: "Use the form below",
     description: "Questions about the conference, registration, or general information",
   },
   {
     label: "Sponsorship",
-    value: "sponsors@urc.unc.edu",
-    href: "mailto:sponsors@urc.unc.edu",
+    value: "Use the form below",
     description: "Partnership opportunities and sponsorship packages",
   },
   {
     label: "Abstract Submissions",
-    value: "abstracts@urc.unc.edu",
-    href: "mailto:abstracts@urc.unc.edu",
+    value: "Use the form below",
     description: "Questions about submitting or reviewing abstracts",
   },
   {
     label: "Executive Team",
-    value: "exec@urc.unc.edu",
-    href: "mailto:exec@urc.unc.edu",
+    value: "Use the form below",
     description: "Leadership positions and organizational matters",
   },
 ];
 
-const socialLinks = [
-  { platform: "Instagram", handle: "@urc_unc", href: "https://instagram.com/urc_unc" },
-  { platform: "LinkedIn", handle: "URC at UNC", href: "https://linkedin.com/company/urc-unc" },
-  { platform: "Twitter", handle: "@urc_unc", href: "https://twitter.com/urc_unc" },
+const quickLinks = [
+  { label: "Conference Details", href: "/conference" },
+  { label: "Get Involved", href: "/get-involved" },
+  { label: "Sponsorship", href: "/sponsors" },
 ];
 
 const faqs = [
   {
     q: "When does the conference take place?",
-    a: "URC@UNC 2026 will be held October 2-3, 2026 at UNC Chapel Hill. Friday evening features registration and networking, with the main conference programming on Saturday."
+    a: "URC@UNC 2026 will be held October 2-3, 2026 at UNC Chapel Hill. The main conference programming, including poster sessions, oral presentations, professional development, and the awards ceremony, takes place on Saturday."
   },
   {
     q: "How do I register to attend?",
-    a: "Registration opens in August 2026. All attendees—presenters, volunteers, and general attendees—must register through our online portal. Accepted presenters will receive registration instructions with their acceptance notification."
+    a: "Registration details will be announced closer to the event. All attendees—presenters, volunteers, and general attendees—will register through our online portal. Accepted presenters will receive registration instructions with their acceptance notification."
   },
   {
     q: "Is there a cost to attend?",
-    a: "There is a nominal registration fee to cover materials, catering, and venue costs. Fee details will be announced when registration opens. Fee waivers are available for students with demonstrated financial need."
+    a: "Attendance and registration details, including any fees, will be announced as the conference approaches. Stay tuned to our website and social media for updates."
   },
   {
     q: "Can faculty or graduate students attend?",
@@ -214,21 +210,21 @@ export default function ContactPage() {
         >
           <div className="max-w-[1200px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-black">
-              {contactMethods.map((method, i) => (
+              {contactTopics.map((topic, i) => (
                 <a
-                  key={method.label}
-                  href={method.href}
+                  key={topic.label}
+                  href="#contact-form"
                   className={`group hover-light-to-dark bg-white p-[calc(20/375*100vw)] md:p-[calc(32/1440*100vw)] hover:bg-black transition-[background-color] duration-300 ${contactActive ? 'opacity-100' : 'opacity-0'}`}
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-black/40 group-hover:text-white/40 uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(12/1440*100vw)] transition-[color] duration-200 delay-100">
-                    {method.label}
+                  <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-black/40 group-hover:text-white/40 uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(12/1440*100vw)] transition-[color] duration-200 delay-100">
+                    {topic.label}
                   </span>
                   <span className="font-serif text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-[#4B9CD3] block mb-[calc(8/375*100vw)] md:mb-[calc(12/1440*100vw)]">
-                    {method.value}
+                    {topic.value}
                   </span>
                   <span className="font-sans text-[calc(11/375*100vw)] md:text-[calc(13/1440*100vw)] text-black/50 group-hover:text-white/50 transition-[color] duration-200 delay-100">
-                    {method.description}
+                    {topic.description}
                   </span>
                 </a>
               ))}
@@ -239,8 +235,9 @@ export default function ContactPage() {
         {/* =====================================================================
             CONTACT FORM SECTION
         ===================================================================== */}
-        <section 
+        <section
           ref={formRef}
+          id="contact-form"
           className="relative w-full py-[calc(60/375*100vw)] md:py-[calc(120/1440*100vw)] px-[calc(20/375*100vw)] md:px-[calc(80/1440*100vw)] bg-[#FAFAF8] border-t-[3px] border-black"
         >
           <div className="max-w-[1200px] mx-auto">
@@ -259,27 +256,25 @@ export default function ContactPage() {
                     Fill out the form and we'll get back to you within 2-3 business days.
                   </p>
 
-                  {/* Social links */}
+                  {/* Quick links */}
                   <div>
-                    <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-black/40 uppercase tracking-wider block mb-[calc(12/375*100vw)] md:mb-[calc(16/1440*100vw)]">
-                      Follow Us
+                    <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-black/40 uppercase tracking-wider block mb-[calc(12/375*100vw)] md:mb-[calc(16/1440*100vw)]">
+                      Quick Links
                     </span>
                     <div className="space-y-[calc(8/375*100vw)] md:space-y-[calc(12/1440*100vw)]">
-                      {socialLinks.map((social) => (
-                        <a
-                          key={social.platform}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                      {quickLinks.map((link) => (
+                        <Link
+                          key={link.label}
+                          href={link.href}
                           className="flex items-center justify-between py-[calc(8/375*100vw)] md:py-[calc(12/1440*100vw)] border-b border-black/10 hover:border-[#4B9CD3] group transition-colors"
                         >
                           <span className="font-sans text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] text-black/60 group-hover:text-black transition-colors">
-                            {social.platform}
+                            {link.label}
                           </span>
                           <span className="font-serif text-[calc(12/375*100vw)] md:text-[calc(14/1440*100vw)] text-[#4B9CD3]">
-                            {social.handle}
+                            →
                           </span>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -316,7 +311,7 @@ export default function ContactPage() {
                         <div>
                           <label 
                             htmlFor="name"
-                            className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-black uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(10/1440*100vw)]"
+                            className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-black uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(10/1440*100vw)]"
                           >
                             Name <span className="text-[#4B9CD3]">*</span>
                           </label>
@@ -334,7 +329,7 @@ export default function ContactPage() {
                         <div>
                           <label 
                             htmlFor="email"
-                            className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-black uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(10/1440*100vw)]"
+                            className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-black uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(10/1440*100vw)]"
                           >
                             Email <span className="text-[#4B9CD3]">*</span>
                           </label>
@@ -355,7 +350,7 @@ export default function ContactPage() {
                       <div>
                         <label 
                           htmlFor="inquiryType"
-                          className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-black uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(10/1440*100vw)]"
+                          className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-black uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(10/1440*100vw)]"
                         >
                           Inquiry Type <span className="text-[#4B9CD3]">*</span>
                         </label>
@@ -389,7 +384,7 @@ export default function ContactPage() {
                       <div>
                         <label 
                           htmlFor="message"
-                          className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-black uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(10/1440*100vw)]"
+                          className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-black uppercase tracking-wider block mb-[calc(8/375*100vw)] md:mb-[calc(10/1440*100vw)]"
                         >
                           Message <span className="text-[#4B9CD3]">*</span>
                         </label>
@@ -407,7 +402,7 @@ export default function ContactPage() {
 
                       {/* Submit row */}
                       <div className="flex items-center justify-between pt-[calc(8/375*100vw)] md:pt-[calc(12/1440*100vw)]">
-                        <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(12/1440*100vw)] text-black/40">
+                        <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(12/1440*100vw)] text-black/40">
                           <span className="text-[#4B9CD3]">*</span> Required fields
                         </span>
                         <button
@@ -517,14 +512,14 @@ export default function ContactPage() {
                   <div className="flex items-start gap-[calc(12/375*100vw)] md:gap-[calc(16/1440*100vw)]">
                     <span className="w-[calc(8/375*100vw)] md:w-[calc(10/1440*100vw)] h-[calc(8/375*100vw)] md:h-[calc(10/1440*100vw)] mt-[6px] bg-[#4B9CD3] flex-shrink-0" />
                     <div>
-                      <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-white/40 uppercase tracking-wider block mb-1">Address</span>
+                      <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-white/40 uppercase tracking-wider block mb-1">Address</span>
                       <span className="font-serif text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-white">Chapel Hill, NC 27599</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-[calc(12/375*100vw)] md:gap-[calc(16/1440*100vw)]">
                     <span className="w-[calc(8/375*100vw)] md:w-[calc(10/1440*100vw)] h-[calc(8/375*100vw)] md:h-[calc(10/1440*100vw)] mt-[6px] bg-[#4B9CD3] flex-shrink-0" />
                     <div>
-                      <span className="font-sans text-[calc(10/375*100vw)] md:text-[calc(11/1440*100vw)] text-white/40 uppercase tracking-wider block mb-1">Date</span>
+                      <span className="font-sans text-[max(11px,calc(10/375*100vw))] md:text-[calc(11/1440*100vw)] text-white/40 uppercase tracking-wider block mb-1">Date</span>
                       <span className="font-serif text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-white">October 2-3, 2026</span>
                     </div>
                   </div>

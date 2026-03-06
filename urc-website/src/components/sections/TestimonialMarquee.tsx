@@ -63,13 +63,13 @@ export default function TestimonialMarquee() {
       <motion.div
         className="container-nippori mb-10"
         initial={{ opacity: 0, y: 15 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        animate={isInView ? { opacity: 1, y: 0 } : false}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="flex items-center gap-4">
           <span className="w-6 h-px bg-[var(--carolina-blue)]/50" />
           <span className="type-label-sm text-[var(--carolina-blue)] tracking-widest">
-            What People Are Saying
+            Our Mission & Values
           </span>
         </div>
       </motion.div>
@@ -77,7 +77,7 @@ export default function TestimonialMarquee() {
       {/* Marquee */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
+        animate={isInView ? { opacity: 1 } : false}
         transition={{ duration: 1, delay: 0.2 }}
       >
         <div className="marquee-quote">

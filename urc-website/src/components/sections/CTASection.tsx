@@ -99,7 +99,7 @@ export default function CTASection() {
       <motion.div
         className="absolute top-1/4 left-[8%] hidden lg:block"
         initial={{ opacity: 0, scaleY: 0 }}
-        animate={isActive ? { opacity: 0.25, scaleY: 1 } : {}}
+        animate={isActive ? { opacity: 0.25, scaleY: 1 } : false}
         transition={{ duration: 1.8, delay: 1, ease: EASE_EXPO_OUT }}
         style={{ transformOrigin: "top" }}
       >
@@ -110,7 +110,7 @@ export default function CTASection() {
       <motion.div
         className="absolute bottom-1/3 right-[12%] hidden lg:block"
         initial={{ opacity: 0, scaleX: 0 }}
-        animate={isActive ? { opacity: 0.2, scaleX: 1 } : {}}
+        animate={isActive ? { opacity: 0.2, scaleX: 1 } : false}
         transition={{ duration: 1.8, delay: 1.2, ease: EASE_EXPO_OUT }}
         style={{ transformOrigin: "right" }}
       >
@@ -127,7 +127,7 @@ export default function CTASection() {
           <motion.div
             className="flex items-center justify-center gap-4 mb-10"
             initial={{ opacity: 0, y: 20 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, ease: EASE_EXPO_OUT }}
           >
             <span className="w-8 h-px bg-[var(--carolina-blue)]/40" />
@@ -145,7 +145,7 @@ export default function CTASection() {
               <motion.span
                 className="block type-display-lg text-white"
                 initial={{ y: "100%" }}
-                animate={isActive ? { y: "0%" } : {}}
+                animate={isActive ? { y: "0%" } : false}
                 transition={{
                   duration: 1.4,
                   delay: 0.1,
@@ -160,7 +160,7 @@ export default function CTASection() {
                 className="block type-display-lg italic text-glow-carolina"
                 style={{ color: "var(--carolina-blue)" }}
                 initial={{ y: "100%" }}
-                animate={isActive ? { y: "0%" } : {}}
+                animate={isActive ? { y: "0%" } : false}
                 transition={{
                   duration: 1.4,
                   delay: 0.2,
@@ -176,7 +176,7 @@ export default function CTASection() {
           <motion.p
             className="type-body-lg text-white/55 mb-14 max-w-2xl mx-auto leading-[1.9]"
             initial={{ opacity: 0, y: 30 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, delay: 0.4, ease: EASE_EXPO_OUT }}
           >
             Join the inaugural Undergraduate Research Conference at UNC Chapel
@@ -188,7 +188,7 @@ export default function CTASection() {
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-5"
             initial={{ opacity: 0, y: 30 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, delay: 0.6, ease: EASE_EXPO_OUT }}
           >
             <Link
@@ -259,7 +259,7 @@ export default function CTASection() {
           <motion.div
             className="mt-14 inline-flex items-center gap-4 px-7 py-4 border border-white/8 backdrop-blur-sm"
             initial={{ opacity: 0, y: 20 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
           >
             <span className="relative flex h-2.5 w-2.5">
@@ -280,7 +280,7 @@ export default function CTASection() {
         <motion.div
           className="flex flex-wrap justify-center gap-16 md:gap-24 mt-28 pt-14 border-t border-white/8"
           initial={{ opacity: 0, y: 30 }}
-          animate={isActive ? { opacity: 1, y: 0 } : {}}
+          animate={isActive ? { opacity: 1, y: 0 } : false}
           transition={{ duration: 1, delay: 0.6, ease: EASE_EXPO_OUT }}
         >
           {[
@@ -305,7 +305,7 @@ export default function CTASection() {
         <motion.div
           className="py-5 border-t border-white/6"
           initial={{ opacity: 0 }}
-          animate={isActive ? { opacity: 1 } : {}}
+          animate={isActive ? { opacity: 1 } : false}
           transition={{ duration: 1, delay: 1.2 }}
         >
           <div

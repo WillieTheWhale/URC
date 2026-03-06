@@ -348,7 +348,7 @@ html.lenis { height: auto; }
 /* Label/UI (12px) */
 .type-label {
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: max(0.75rem, 11px);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.05em;
@@ -357,17 +357,17 @@ html.lenis { height: auto; }
 /* Label Uppercase */
 .type-label-caps {
   font-family: var(--font-body);
-  font-size: 0.625rem;
+  font-size: max(0.625rem, 11px);
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-/* Tiny Label (10px) */
+/* Tiny Label */
 .type-label-sm {
   font-family: var(--font-display);
-  font-size: 0.625rem;
+  font-size: max(0.625rem, 11px);
   font-weight: 400;
   line-height: 1;
 }
@@ -530,7 +530,6 @@ html.lenis { height: auto; }
 .effect-split-line .word {
   display: inline-block;
   transform: perspective(1000px) translateY(100%);
-  will-change: transform;
 }
 
 .is-active .effect-split-line .word,
@@ -548,7 +547,6 @@ html.lenis { height: auto; }
 .effect-split-word .word {
   display: inline-block;
   transform: perspective(1000px) translateY(115%);
-  will-change: transform;
 }
 
 .is-active .effect-split-word .word,
@@ -573,7 +571,6 @@ html.lenis { height: auto; }
 .effect-split-char .char span {
   display: inline-block;
   transform: perspective(1000px) translateY(115%);
-  will-change: transform;
 }
 
 .is-active .effect-split-char .char span,
@@ -594,7 +591,6 @@ html.lenis { height: auto; }
   transform: rotateX(-90deg) translateY(100%);
   transform-origin: bottom;
   opacity: 0;
-  will-change: transform, opacity;
 }
 
 .is-active .effect-rotate-3d .word,
@@ -610,7 +606,6 @@ html.lenis { height: auto; }
   filter: blur(20px);
   opacity: 0;
   transform: translateY(30px);
-  will-change: filter, opacity, transform;
 }
 
 .is-active .effect-blur-in,
@@ -644,11 +639,9 @@ html.lenis { height: auto; }
   overflow: hidden;
 }
 
-.effect-image img,
-.effect-image > div {
+.effect-image img {
   transform: scale(1.2);
   transition: transform 1.2s var(--ease-quint-out);
-  will-change: transform;
 }
 
 .is-active .effect-image,
@@ -657,9 +650,7 @@ html.lenis { height: auto; }
 }
 
 .is-active .effect-image img,
-.is-active .effect-image > div,
-.effect-image.is-active img,
-.effect-image.is-active > div {
+.effect-image.is-active img {
   transform: scale(1);
 }
 
@@ -749,7 +740,6 @@ html.lenis { height: auto; }
 .effect-parallax {
   transform: perspective(1000px) translateY(calc(var(--progress, 0) * 100%));
   transform-origin: center;
-  will-change: transform;
 }
 
 /* =============================================================================
@@ -1617,7 +1607,7 @@ div.hover-dark-to-accent-direct {
 }
 
 .text-fluid-cta {
-  font-size: calc(10 / 375 * 100vw);
+  font-size: max(11px, calc(10 / 375 * 100vw));
 }
 @media (min-width: 768px) {
   .text-fluid-cta {
@@ -2058,19 +2048,6 @@ a:focus-visible {
   opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   animation: grain 0.5s steps(1) infinite;
-}
-
-@keyframes grain {
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -10%); }
-  20% { transform: translate(-15%, 5%); }
-  30% { transform: translate(7%, -25%); }
-  40% { transform: translate(-5%, 25%); }
-  50% { transform: translate(-15%, 10%); }
-  60% { transform: translate(15%, 0%); }
-  70% { transform: translate(0%, 15%); }
-  80% { transform: translate(3%, 35%); }
-  90% { transform: translate(-10%, 10%); }
 }
 
 /* Noise texture — subtle static background */

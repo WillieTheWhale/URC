@@ -11,35 +11,30 @@ import Footer from "@/components/layout/Footer";
    DATA
    ============================================================================= */
 
-const fridaySchedule = [
-  { time: "5:00 PM", event: "Registration Opens", location: "Main Lobby", highlight: false },
-  { time: "5:30 PM", event: "Welcome Remarks", location: "Auditorium", highlight: true },
-  { time: "6:00 PM", event: "Networking Dinner", location: "Dining Hall", highlight: false },
-  { time: "7:00 PM", event: "Workshop Session", location: "Breakout Rooms", highlight: false },
-];
+const fridaySchedule: { time: string; event: string; location: string; highlight: boolean }[] = [];
 
 const saturdaySchedule = [
-  { time: "9:30 AM", event: "Breakfast", location: "Dining Hall", highlight: false },
-  { time: "10:00 AM", event: "Poster Session 1", location: "Atrium + Classrooms", highlight: true },
-  { time: "11:00 AM", event: "Poster Session 2", location: "Atrium + Classrooms", highlight: true },
-  { time: "12:00 PM", event: "Lunch Break", location: "Dining Hall", highlight: false },
-  { time: "1:00 PM", event: "Professional Development #2", location: "Breakout Rooms", highlight: false },
-  { time: "2:30 PM", event: "Poster Session 3", location: "Atrium + Classrooms", highlight: true },
-  { time: "3:30 PM", event: "Professional Development #3", location: "Breakout Rooms", highlight: false },
-  { time: "4:30 PM", event: "Awards Ceremony", location: "Auditorium", highlight: true },
+  { time: "9:30 AM", event: "Breakfast", location: "Venue Atrium", highlight: false },
+  { time: "10:00 AM", event: "Poster Session 1 & Oral Presentations", location: "Atrium \u2022 Posters/Sponsor Booths \u2022 Classrooms \u2022 10-min Talks", highlight: true },
+  { time: "11:00 AM", event: "Poster Session 2 & Oral Presentations", location: "Atrium \u2022 Posters/Sponsor Booths \u2022 Classrooms \u2022 15-min Talks (10 + 5 Q&A)", highlight: true },
+  { time: "12:00 PM", event: "Lunch", location: "Dining Area", highlight: false },
+  { time: "1:00 PM", event: "Professional Development Breakout Groups", location: "Breakout Rooms", highlight: false },
+  { time: "2:30 PM", event: "Poster Session 3 & Oral Presentations", location: "Atrium \u2022 Posters/Sponsor Booths \u2022 Classrooms \u2022 10-min Talks", highlight: true },
+  { time: "3:30 PM", event: "Professional Development Session", location: "Venue TBD", highlight: false },
+  { time: "4:30 PM", event: "Awards & Closing Remarks", location: "Venue TBD", highlight: true },
 ];
 
 const tracks = [
-  { id: "01", title: "STEM", description: "Biology, Chemistry, Physics, Engineering, Computer Science", color: "#4B9CD3" },
-  { id: "02", title: "Social Sciences", description: "Psychology, Sociology, Political Science, Economics", color: "#000" },
-  { id: "03", title: "Humanities", description: "History, Literature, Philosophy, Art History", color: "#4B9CD3" },
+  { id: "01", title: "STEM", description: "Biology, Chemistry, Physics, Engineering, Computer Science, and related fields. Includes federally threatened research areas.", color: "#4B9CD3" },
+  { id: "02", title: "Social Sciences", description: "Psychology, Sociology, Political Science, Economics, Public Health, and minoritized-disparity focused research.", color: "#000" },
+  { id: "03", title: "Humanities", description: "History, Literature, Philosophy, Art History, and interdisciplinary humanities research.", color: "#4B9CD3" },
 ];
 
 const conferenceImages = [
-  "/research-lab.png",
-  "/poster-session.png",
-  "/award-ceremony.png",
-  "/urc-hero.png",
+  "/images/conference-audience.jpg",
+  "/images/speaker-podium.jpg",
+  "/images/celebration.jpg",
+  "/images/students-collaborating.jpg",
 ];
 
 /* =============================================================================
@@ -99,7 +94,10 @@ export default function ConferencePage() {
   }, []);
   
   useEffect(() => {
-    if (heroInView) setTimeout(() => setHeroActive(true), 200);
+    if (heroInView) {
+      const t = setTimeout(() => setHeroActive(true), 200);
+      return () => clearTimeout(t);
+    }
   }, [heroInView]);
   
   useEffect(() => {
@@ -216,7 +214,7 @@ export default function ConferencePage() {
             </div>
             <div className="flex items-center gap-[calc(12/375*100vw)] md:gap-[calc(20/1440*100vw)]">
               <span className="w-[calc(8/375*100vw)] md:w-[calc(12/1440*100vw)] h-[calc(8/375*100vw)] md:h-[calc(12/1440*100vw)] bg-[#4B9CD3]" />
-              <span className="font-sans text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-black/60">Friday Evening — Saturday</span>
+              <span className="font-sans text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-black/60">Two-Day Conference</span>
             </div>
           </div>
 
@@ -477,8 +475,8 @@ function ScheduleCards({ fridaySchedule, saturdaySchedule, scheduleActive, card1
   const [topCard, setTopCard] = useState<"friday" | "saturday" | null>(null);
 
   // Inline transition: entrance (opacity+transform) = 1200ms with delay, shadow = 400ms no delay
-  const fridayTransition = 'opacity 1200ms cubic-bezier(.22,1,.36,1) 300ms, transform 1200ms cubic-bezier(.22,1,.36,1) 300ms, box-shadow 400ms cubic-bezier(.22,1,.36,1) 0ms';
-  const saturdayTransition = 'opacity 1200ms cubic-bezier(.22,1,.36,1) 400ms, transform 1200ms cubic-bezier(.22,1,.36,1) 400ms, box-shadow 400ms cubic-bezier(.22,1,.36,1) 0ms';
+  const fridayTransition = 'opacity 1200ms cubic-bezier(.22,1,.36,1) 300ms, box-shadow 400ms cubic-bezier(.22,1,.36,1) 0ms';
+  const saturdayTransition = 'opacity 1200ms cubic-bezier(.22,1,.36,1) 400ms, box-shadow 400ms cubic-bezier(.22,1,.36,1) 0ms';
 
   return (
     <div className="relative">
@@ -504,21 +502,10 @@ function ScheduleCards({ fridaySchedule, saturdaySchedule, scheduleActive, card1
             </span>
           </div>
 
-          <div className="border-t-[2px] border-black">
-            {fridaySchedule.map((item, i) => (
-              <div
-                key={i}
-                className={`group hover-light-to-dark flex gap-[calc(12/375*100vw)] md:gap-[calc(24/1440*100vw)] py-[calc(16/375*100vw)] md:py-[calc(24/1440*100vw)] border-b border-black/10 ${item.highlight ? 'bg-[#4B9CD3]/5' : ''} hover:bg-black -mx-[calc(20/375*100vw)] md:-mx-[calc(50/1440*100vw)] px-[calc(20/375*100vw)] md:px-[calc(50/1440*100vw)]`}
-              >
-                <div className="flex-shrink-0 w-[calc(60/375*100vw)] md:w-[calc(100/1440*100vw)]">
-                  <span className="font-serif text-[calc(12/375*100vw)] md:text-[calc(16/1440*100vw)] text-[#4B9CD3]">{item.time}</span>
-                </div>
-                <div>
-                  <h4 className="font-serif text-[calc(16/375*100vw)] md:text-[calc(22/1440*100vw)] text-black group-hover:text-white transition-[color] duration-200 delay-100">{item.event}</h4>
-                  <p className="font-sans text-[calc(11/375*100vw)] md:text-[calc(14/1440*100vw)] text-black/50 group-hover:text-white/50 transition-[color] duration-200 delay-100">{item.location}</p>
-                </div>
-              </div>
-            ))}
+          <div className="border-t-[2px] border-black py-[calc(24/375*100vw)] md:py-[calc(40/1440*100vw)]">
+            <p className="font-sans text-[calc(14/375*100vw)] md:text-[calc(18/1440*100vw)] text-black/50 italic">
+              Friday evening programming to be announced.
+            </p>
           </div>
         </div>
       </motion.div>

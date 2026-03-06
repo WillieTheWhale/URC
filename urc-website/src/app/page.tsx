@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import LoadingScreen from "@/components/layout/LoadingScreen";
@@ -48,11 +48,11 @@ export default function Home() {
     });
   }, []);
 
-  const handleLoadingComplete = () => {
+  const handleLoadingComplete = useCallback(() => {
     setIsLoading(false);
     // Small delay before showing content for smooth transition
     setTimeout(() => setShowContent(true), 100);
-  };
+  }, []);
 
   return (
     <>
@@ -82,8 +82,8 @@ export default function Home() {
 
           {/* Pull Quote — editorial break */}
           <PullQuote
-            quote="Your research. Your voice. Your moment."
-            attribution="URC@UNC — Inaugural Edition, 2026"
+            quote="Every question deserves an audience."
+            attribution="URC@UNC — Inaugural Edition, October 2–3, 2026"
           />
 
           {/* Image Divider — campus atmosphere */}

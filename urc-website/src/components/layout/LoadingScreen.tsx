@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -12,44 +12,52 @@ interface LoadingScreenProps {
   minimumDuration?: number;
 }
 
-export default function LoadingScreen({ 
-  onComplete, 
-  minimumDuration = 2400 
+export default function LoadingScreen({
+  onComplete,
+  minimumDuration = 2400
 }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
 
   // Simulate loading progress
   useEffect(() => {
     const startTime = Date.now();
     let animationFrame: number;
-    
+    let timer1: ReturnType<typeof setTimeout>;
+    let timer2: ReturnType<typeof setTimeout>;
+
     const updateProgress = () => {
       const elapsed = Date.now() - startTime;
       const newProgress = Math.min(elapsed / minimumDuration, 1);
-      
+
       // Eased progress for smoother animation
       const easedProgress = 1 - Math.pow(1 - newProgress, 3);
       setProgress(easedProgress);
-      
+
       if (newProgress < 1) {
         animationFrame = requestAnimationFrame(updateProgress);
       } else {
         setIsComplete(true);
-        setTimeout(() => {
+        timer1 = setTimeout(() => {
           setIsExiting(true);
-          setTimeout(() => {
-            onComplete?.();
+          timer2 = setTimeout(() => {
+            onCompleteRef.current?.();
           }, 800);
         }, 400);
       }
     };
-    
+
     animationFrame = requestAnimationFrame(updateProgress);
-    
-    return () => cancelAnimationFrame(animationFrame);
-  }, [minimumDuration, onComplete]);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, [minimumDuration]);
 
   return (
     <AnimatePresence>

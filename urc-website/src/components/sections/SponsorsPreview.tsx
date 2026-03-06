@@ -5,10 +5,10 @@ import { useInView } from "framer-motion";
 import Link from "next/link";
 
 const tiers = [
-  { name: "Founding Partner", price: "$10,000+" },
-  { name: "Gold Sponsor", price: "$5,000" },
-  { name: "Silver Sponsor", price: "$2,500" },
-  { name: "Bronze Sponsor", price: "$1,000" },
+  { name: "Presenting Partner", price: "Contact Us" },
+  { name: "Supporting Partner", price: "Contact Us" },
+  { name: "Contributing Partner", price: "Contact Us" },
+  { name: "Community Partner", price: "Contact Us" },
 ];
 
 export default function SponsorsPreview() {

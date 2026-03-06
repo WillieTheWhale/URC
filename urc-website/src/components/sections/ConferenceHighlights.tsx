@@ -11,29 +11,29 @@ const highlights = [
   {
     num: "01",
     title: "Poster Sessions",
-    description: "Present your research visually in our main atrium alongside peers from across the Southeast. Engage directly with faculty and fellow researchers.",
-    longDescription: "Three dedicated sessions provide an intimate setting for detailed discussion of your methodology, findings, and implications with expert reviewers.",
+    description: "Three dedicated poster sessions in the venue atrium alongside sponsor booths. Present your research visually and engage directly with faculty and fellow researchers.",
+    longDescription: "Posters are organized by broad disciplines\u2014STEM, Social Sciences, and Humanities. Each session runs alongside 10-minute oral talks in nearby classrooms.",
     image: "/images/conference-audience.jpg",
   },
   {
     num: "02",
     title: "Oral Presentations",
-    description: "Selected top abstracts deliver 15-minute talks to faculty and student audiences in specialized track sessions.",
-    longDescription: "Develop your public speaking skills and receive real-time feedback from domain experts in purpose-built presentation rooms.",
+    description: "20\u201330 selected undergraduates deliver 10\u201315 minute talks with Q&A to faculty and student audiences in specialized track sessions.",
+    longDescription: "Develop your public speaking skills and receive real-time feedback from domain experts. Oral talks run concurrently with poster sessions in classrooms.",
     image: "/images/speaker-podium.jpg",
   },
   {
     num: "03",
     title: "Professional Development",
-    description: "Three career-focused workshops led by industry professionals and academic mentors across both conference days.",
-    longDescription: "From research communication to graduate school applications, gain practical skills that extend far beyond the conference.",
+    description: "Three career-focused breakout workshops led by career development staff, industry professionals, and academic mentors.",
+    longDescription: "From research communication to honors thesis guidance, gain practical skills that extend far beyond the conference. Breakout groups allow personalized interaction.",
     image: "/images/working-laptop.jpg",
   },
   {
     num: "04",
     title: "Awards Ceremony",
-    description: "Compete for merit-based awards recognizing outstanding undergraduate research across all disciplines and tracks.",
-    longDescription: "Winners receive financial merit awards and recognition, judged by faculty, graduate students, and undergraduate seniors.",
+    description: "Compete for Best Poster, Best Oral Presentation, and the Independent Inquiry award for federally threatened research fields.",
+    longDescription: "Winners receive certificates, plaques, and gift cards. Judged by faculty, graduate students, and undergraduate seniors pursuing honors theses. Select awards sponsored by partner organizations.",
     image: "/images/celebration.jpg",
   },
 ];
@@ -87,7 +87,7 @@ export default function ConferenceHighlights() {
         <motion.span
           className="block font-serif text-[clamp(120px,20vw,350px)] leading-[0.8] text-black/[0.012] whitespace-nowrap"
           initial={{ x: "-5%" }}
-          animate={isActive ? { x: "5%" } : {}}
+          animate={isActive ? { x: "5%" } : false}
           transition={{ duration: 50, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
         >
           CONFERENCE — HIGHLIGHTS — 2026
@@ -101,7 +101,7 @@ export default function ConferenceHighlights() {
             <motion.div
               className="flex items-center gap-4 mb-8"
               initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1, ease: EASE_EXPO_OUT }}
             >
               <span className="type-label text-[var(--carolina-blue)]">03</span>
@@ -113,7 +113,7 @@ export default function ConferenceHighlights() {
               <motion.h2
                 className="type-display-md text-black"
                 initial={{ y: "100%" }}
-                animate={isActive ? { y: "0%" } : {}}
+                animate={isActive ? { y: "0%" } : false}
                 transition={{ duration: 1.3, delay: 0.1, ease: EASE_EXPO_OUT }}
               >
                 What to <span className="italic text-[var(--carolina-blue)]">expect</span>
@@ -123,7 +123,7 @@ export default function ConferenceHighlights() {
             <motion.p
               className="type-body text-black/50 mt-6 max-w-lg leading-[1.8]"
               initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
+              animate={isActive ? { opacity: 1, y: 0 } : false}
               transition={{ duration: 1, delay: 0.3, ease: EASE_EXPO_OUT }}
             >
               Two days of presentations, workshops, and networking opportunities
@@ -133,7 +133,7 @@ export default function ConferenceHighlights() {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            animate={isActive ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 1, delay: 0.4, ease: EASE_EXPO_OUT }}
           >
             <Link href="/conference" className="btn-pill">
@@ -147,7 +147,7 @@ export default function ConferenceHighlights() {
       <motion.div
         className="relative mt-8"
         initial={{ opacity: 0 }}
-        animate={isActive ? { opacity: 1 } : {}}
+        animate={isActive ? { opacity: 1 } : false}
         transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
       >
         <div
@@ -167,7 +167,7 @@ export default function ConferenceHighlights() {
           <motion.div
             className="horizontal-scroll-item w-[280px] md:w-[340px] flex-shrink-0 flex items-center justify-center"
             initial={{ opacity: 0, x: 40 }}
-            animate={isActive ? { opacity: 1, x: 0 } : {}}
+            animate={isActive ? { opacity: 1, x: 0 } : false}
             transition={{ duration: 1.2, delay: 1.2, ease: EASE_EXPO_OUT }}
           >
             <Link
@@ -214,7 +214,7 @@ export default function ConferenceHighlights() {
         <motion.div
           className="flex flex-wrap justify-between items-center gap-10 py-10 border-t-2 border-b-2 border-black/10"
           initial={{ opacity: 0, y: 30 }}
-          animate={isActive ? { opacity: 1, y: 0 } : {}}
+          animate={isActive ? { opacity: 1, y: 0 } : false}
           transition={{ duration: 1, delay: 0.5, ease: EASE_EXPO_OUT }}
         >
           {[
@@ -277,7 +277,7 @@ function HighlightCard({ item, index, isActive }: HighlightCardProps) {
       ref={cardRef}
       className="horizontal-scroll-item w-[280px] md:w-[420px] lg:w-[480px] flex-shrink-0 group"
       initial={{ opacity: 0, x: 80 }}
-      animate={isActive ? { opacity: 1, x: 0 } : {}}
+      animate={isActive ? { opacity: 1, x: 0 } : false}
       transition={{ duration: 1.2, delay: 0.4 + index * 0.12, ease: EASE_EXPO_OUT }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -325,7 +325,7 @@ function HighlightCard({ item, index, isActive }: HighlightCardProps) {
         <h3 className="font-serif text-2xl md:text-3xl text-black mb-4 group-hover:text-[var(--carolina-blue)] transition-colors duration-500">
           {item.title}
         </h3>
-        <p className="type-body-sm text-black/50 leading-[1.7] line-clamp-2">
+        <p className="type-body-sm text-black/50 leading-[1.7] line-clamp-3">
           {item.description}
         </p>
 
