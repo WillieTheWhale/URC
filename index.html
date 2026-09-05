@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="URC@UNC is the first-annual, student-run Undergraduate Research Conference at UNC-Chapel Hill. Saturday, October 10, 2026 at the Morehead Planetarium and Science Center. Free to attend and present.">
+<title>URC at UNC</title>
+<style>
+  /* ============================================================
+     CONFIG — fill these in before publishing. Search for "TODO"
+     to find every spot that needs real content.
+     ============================================================ */
+
+  :root{
+    /* ---- Light theme (default) ---- */
+    --paper: #FBF7EE;         /* warm page background */
+    --paper-raised: #F3ECDC;  /* slightly deeper paper, for cards on paper */
+    --ink: #16242F;           /* primary text */
+    --ink-muted: #4C5A62;     /* secondary text */
+    --line: rgba(22,36,47,0.15);
+    --line-strong: rgba(22,36,47,0.30);
+
+    --night: #0F2436;         /* deep navy — hero / night-sky bands */
+    --night-raised: #16324A;
+    --night-text: #F5F1E4;
+    --night-text-muted: #B9CBD8;
+    --night-line: rgba(245,241,228,0.18);
+
+    --carolina: #1B6296;      /* accent used for text links (on paper) */
+    --carolina-strong: #14507D; /* button fill on paper, white text on top */
+    --carolina-bright: #6FB3E0; /* decorative use only, not for text */
+
+    --gold: #8A5B08;          /* accent text on paper (priority deadline) */
+    --gold-bright: #F4C567;   /* decorative on dark bg */
+
+    --focus: #14507D;
+
+    --cta-bg: var(--carolina-strong);
+    --cta-text: #FFFFFF;
+    --cta-bg-hover: #0F3E63;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #0B1119;
+      --paper-raised: #131B26;
+      --ink: #EEEFEF;
+      --ink-muted: #A6B0B8;
+      --line: rgba(238,239,239,0.16);
+      --line-strong: rgba(238,239,239,0.30);
+
+      --night: #060D16;
+      --night-raised: #101C2B;
+      --night-text: #F5F1E4;
+      --night-text-muted: #C7D6E0;
+      --night-line: rgba(245,241,228,0.16);
+
+      --carolina: #8FCCF2;
+      --carolina-strong: #8FCCF2;
+      --carolina-bright: #8FCCF2;
+
+      --gold: #F4C567;
+      --gold-bright: #F4C567;
+
+      --focus: #8FCCF2;
+
+      --cta-bg: #8FCCF2;
+      --cta-text: #06263A;
+      --cta-bg-hover: #A9DAF8;
+    }
+  }
+
+  :root[data-theme="dark"]{
+    --paper: #0B1119;
+    --paper-raised: #131B26;
+    --ink: #EEEFEF;
+    --ink-muted: #A6B0B8;
+    --line: rgba(238,239,239,0.16);
+    --line-strong: rgba(238,239,239,0.30);
+
+    --night: #060D16;
+    --night-raised: #101C2B;
+    --night-text: #F5F1E4;
+    --night-text-muted: #C7D6E0;
+    --night-line: rgba(245,241,228,0.16);
+
+    --carolina: #8FCCF2;
+    --carolina-strong: #8FCCF2;
+    --carolina-bright: #8FCCF2;
+
+    --gold: #F4C567;
+    --gold-bright: #F4C567;
+
+    --focus: #8FCCF2;
+
+    --cta-bg: #8FCCF2;
+    --cta-text: #06263A;
+    --cta-bg-hover: #A9DAF8;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3{
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    line-height: 1.08;
+    text-wrap: balance;
+    margin: 0;
+    color: inherit;
+  }
+
+  p{ margin: 0; }
+  a{ color: var(--carolina); }
+  a:not(.btn){ text-underline-offset: 3px; }
+
+  img{ max-width: 100%; display: block; }
+
+  :focus-visible{
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .skip-link{
+    position: absolute;
+    left: 1rem;
+    top: -60px;
+    background: var(--cta-bg);
+    color: var(--cta-text);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    z-index: 200;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus{ top: 1rem; }
+
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .prose-wrap{
+    max-width: 640px;
+  }
+
+  .eyebrow{
+    display: inline-block;
+    font-family: "Public Sans", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  section{ padding: 4.5rem 0; }
+  @media (max-width: 640px){
+    section{ padding: 3.25rem 0; }
+  }
+
+  .section-head{
+    margin-bottom: 2.5rem;
+    max-width: 640px;
+  }
+  .section-head h2{ font-size: clamp(1.75rem, 4.5vw, 2.5rem); margin-top: 0.5rem; }
+  .section-head .eyebrow{ color: var(--carolina); }
+  .section-head p{ margin-top: 0.9rem; color: var(--ink-muted); font-size: 1.05rem; }
+
+  /* ---------- Skip target / main ---------- */
+  main{ display: block; }
+
+  /* ---------- Top nav ---------- */
+  header.site-nav{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 60px;
+  }
+  .wordmark{
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .wordmark:focus-visible{ outline-offset: 4px; }
+  .nav-links{
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a{
+    color: var(--ink-muted);
+    text-decoration: none;
+    font-size: 0.94rem;
+    font-weight: 600;
+  }
+  .nav-links a:hover{ color: var(--ink); }
+  .nav-cta{ flex-shrink: 0; }
+  @media (max-width: 800px){
+    .nav-links{ display: none; }
+  }
+  @media (max-width: 640px){
+    a.nav-cta{ display: none; }
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  }
+  .btn:active{ transform: translateY(1px); }
+  .btn-primary{
+    background: var(--cta-bg);
+    color: var(--cta-text);
+  }
+  .btn-primary:hover{ background: var(--cta-bg-hover); }
+  .btn-secondary{
+    background: transparent;
+    border-color: currentColor;
+    color: inherit;
+  }
+  .btn-secondary:hover{ background: rgba(127,127,127,0.1); }
+  .btn-small{ padding: 0.6rem 1.1rem; font-size: 0.92rem; }
+  .btn-block{ width: 100%; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position: relative;
+    background: var(--night);
+    color: var(--night-text);
+    overflow: hidden;
+    padding: 3.5rem 0 3rem;
+  }
+  .hero-inner{ max-width: 620px; }
+  .hero h1{
+    font-size: clamp(2.6rem, 9vw, 4rem);
+    color: var(--night-text);
+  }
+  .hero .subhead{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--carolina-bright);
+    margin-top: 0.65rem;
+  }
+  .hero .pitch{
+    margin-top: 1.1rem;
+    font-size: 1.15rem;
+    color: var(--night-text);
+    max-width: 36ch;
+  }
+  .hero .meta{
+    margin-top: 1rem;
+    color: var(--night-text-muted);
+    font-size: 1rem;
+  }
+  .hero .cta-row{
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+  .hero .btn-secondary{ border-color: var(--night-line); color: var(--night-text); }
+  .hero .btn-secondary:hover{ background: rgba(245,241,228,0.1); }
+  .hero .deadline-note{
+    margin-top: 1.1rem;
+    font-size: 0.88rem;
+    color: var(--night-text-muted);
+  }
+  .hero .deadline-note strong{ color: var(--gold-bright); font-weight: 700; }
+
+  /* ---------- Who this is for ---------- */
+  .for-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+  @media (max-width: 760px){
+    .for-grid{ grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+  .for-card{
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--line);
+  }
+  .for-card h3{ font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .for-card p{ color: var(--ink-muted); font-size: 0.98rem; }
+
+  /* ---------- Deadlines ---------- */
+  .ticket-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  @media (max-width: 720px){
+    .ticket-row{ grid-template-columns: 1fr; gap: 2rem; }
+  }
+  .ticket{
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--line);
+  }
+  .ticket.priority{ border-top-color: var(--gold); }
+  .ticket .label{
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--ink-muted);
+  }
+  .ticket.priority .label{ color: var(--gold); }
+  .ticket .date{
+    font-family: "Fraunces", serif;
+    font-size: clamp(1.8rem, 5vw, 2.3rem);
+    font-weight: 600;
+    margin: 0.2rem 0 1rem;
+  }
+  .ticket ul{ list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+  .ticket li{ font-size: 0.98rem; color: var(--ink); }
+  .ticket.final li{ color: var(--ink-muted); }
+  .deadline-footnote{
+    margin-top: 2rem;
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- The Day ---------- */
+  .agenda{
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .agenda-item{
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1.25rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  /* Collapse the time column while times are unconfirmed; reappears on its
+     own once a real <span class="time"> loses its hidden attribute. */
+  .agenda-item:has(.time[hidden]){ grid-template-columns: 1fr; }
+  @media (max-width: 560px){
+    .agenda-item{ grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+  .agenda-item .time{
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .agenda-item h3{ font-size: 1.08rem; font-weight: 700; font-family: "Public Sans", sans-serif; }
+  .agenda-item p{ color: var(--ink-muted); font-size: 0.95rem; margin-top: 0.2rem; }
+
+  /* keynote — hidden by default, see HTML comment near the section */
+  #keynote{ background: var(--paper-raised); }
+  .keynote-card{
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .keynote-photo{
+    width: 140px; height: 140px; border-radius: 50%;
+    background: var(--line);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-muted); font-size: 0.75rem; text-align: center;
+  }
+
+  /* ---------- Workshops ---------- */
+  .workshops-band{ background: var(--night); color: var(--night-text); }
+  .workshops-band .section-head .eyebrow{ color: var(--gold-bright); }
+  .workshops-band .section-head p{ color: var(--night-text-muted); }
+  .workshop-points{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 760px){
+    .workshop-points{ grid-template-columns: 1fr; }
+  }
+  .workshop-point{
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--night-line);
+  }
+  .workshop-point h3{ font-family: "Public Sans", sans-serif; font-size: 1.02rem; margin-bottom: 0.4rem; color: var(--night-text); }
+  .workshop-point p{ color: var(--night-text-muted); font-size: 0.94rem; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{ display: grid; gap: 0.75rem; max-width: 720px; }
+  details.faq{
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 0;
+  }
+  details.faq summary{
+    list-style: none;
+    cursor: pointer;
+    padding: 1.1rem 1.35rem;
+    font-weight: 700;
+    font-size: 1.02rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  details.faq summary::-webkit-details-marker{ display: none; }
+  details.faq summary .icon{
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line-strong);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  details.faq summary .icon::before,
+  details.faq summary .icon::after{
+    content: "";
+    position: absolute;
+    background: var(--ink);
+  }
+  details.faq summary .icon::before{ width: 10px; height: 1.5px; }
+  details.faq summary .icon::after{ width: 1.5px; height: 10px; }
+  details.faq[open] summary .icon::after{ display: none; }
+  details.faq .faq-body{
+    padding: 0 1.35rem 1.25rem;
+    color: var(--ink-muted);
+    font-size: 0.98rem;
+    max-width: 62ch;
+  }
+  details.faq .faq-body .flag{
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* ---------- Partners ---------- */
+  .partner-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem 3rem;
+    align-items: center;
+  }
+  .partner-lockup{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  /* ---------- Team ---------- */
+  .team-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem 1.5rem;
+  }
+  @media (max-width: 760px){
+    .team-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 460px){
+    .team-grid{ grid-template-columns: 1fr 1fr; gap: 1.25rem 1rem; }
+  }
+  .team-card{ text-align: left; }
+  .silhouette{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+  .silhouette svg{ width: 62%; color: var(--line-strong); }
+  .team-card .name{ font-weight: 700; font-size: 0.98rem; }
+  .team-card .role{ color: var(--ink-muted); font-size: 0.88rem; margin-top: 0.1rem; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--night);
+    color: var(--night-text-muted);
+    padding: 3rem 0 6.5rem;
+  }
+  @media (min-width: 641px){
+    footer{ padding-bottom: 3rem; }
+  }
+  .footer-top{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--night-line);
+  }
+  footer .wordmark{ color: var(--night-text); }
+  .footer-links{ display: grid; gap: 0.5rem; font-size: 0.95rem; }
+  .footer-links a{ color: var(--night-text-muted); }
+  .footer-links a:hover{ color: var(--night-text); }
+  .footer-bottom{
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  /* ---------- Mobile sticky apply bar ---------- */
+  .sticky-apply{
+    display: none;
+  }
+  @media (max-width: 640px){
+    .sticky-apply{
+      display: flex;
+      gap: 0.6rem;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 150;
+      padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom));
+      background: color-mix(in srgb, var(--paper) 96%, transparent);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--line);
+    }
+    .sticky-apply .btn-primary{ flex: 1; }
+    .sticky-apply .btn-secondary{ flex-shrink: 0; padding: 0.85rem 1rem; }
+  }
+
+  .visually-hidden{
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-nav">
+  <div class="wrap nav-row">
+    <a class="wordmark" href="#top">URC <span aria-hidden="true">@</span> UNC</a>
+    <nav aria-label="Section">
+      <ul class="nav-links">
+        <li><a href="#who">Who it's for</a></li>
+        <li><a href="#deadlines">Deadlines</a></li>
+        <li><a href="#the-day">The day</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary btn-small nav-cta" href="#TODO-APPLICATION-FORM-URL">Apply to present</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <h1>URC @ UNC</h1>
+      <p class="subhead">The Undergraduate Research Conference at UNC&#8209;Chapel&nbsp;Hill</p>
+      <p class="pitch">A day to present your research — any stage, any field.</p>
+      <p class="meta">Saturday, October 10, 2026 · Morehead Planetarium and Science Center · Free</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#TODO-APPLICATION-FORM-URL">Apply to present</a>
+        <a class="btn btn-secondary" href="#TODO-RSVP-FORM-URL">RSVP to attend</a>
+      </div>
+      <p class="deadline-note"><strong>Apply by Sept 10</strong> for a guaranteed spot · Final deadline Sept 25</p>
+    </div>
+  </section>
+
+  <!-- ============ KEYNOTE — UNCONFIRMED, HIDDEN ============
+       Flip this section live only after a speaker is confirmed in writing.
+       1. Replace the photo, name, title, and bio placeholders below.
+       2. Delete the `hidden` attribute on the <section> tag.
+       Do not fill in a placeholder name "for now" — leave it hidden until real. -->
+  <section id="keynote" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" style="color:var(--carolina)">Keynote</span>
+        <h2>[Keynote speaker name — TODO]</h2>
+      </div>
+      <div class="keynote-card">
+        <div class="keynote-photo" aria-hidden="true">Photo<br>TODO</div>
+        <div>
+          <p style="font-weight:700;">[Speaker title / affiliation — TODO]</p>
+          <p style="margin-top:0.6rem; color:var(--ink-muted);">[Two to three sentence bio — TODO]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. WHO THIS IS FOR ============ -->
+  <section id="who">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Eligibility</span>
+        <h2>Who can apply</h2>
+      </div>
+      <div class="for-grid">
+        <div class="for-card">
+          <h3>Any school, any field</h3>
+          <p>Undergraduates at any college or university can apply, in any field — from biology to history to studio art.</p>
+        </div>
+        <div class="for-card">
+          <h3>Any stage of the work</h3>
+          <p>Projects don't need to be finished. Preliminary data, a semester project, or work still in progress all count as research.</p>
+        </div>
+        <div class="for-card">
+          <h3>No experience required</h3>
+          <p>Most people presenting at URC will be first-time presenters. No prior conference experience is expected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. DEADLINES ============ -->
+  <section id="deadlines">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Deadlines</span>
+        <h2>Two deadlines</h2>
+        <p>Space is limited. Priority applicants get first pick of the schedule.</p>
+      </div>
+      <div class="ticket-row">
+        <div class="ticket priority">
+          <span class="label">Priority deadline</span>
+          <span class="date">September 10</span>
+          <ul>
+            <li>Guaranteed review</li>
+            <li>Decision by September 14</li>
+            <li>Guaranteed spot on the schedule</li>
+          </ul>
+        </div>
+        <div class="ticket final">
+          <span class="label">Final deadline</span>
+          <span class="date">September 25</span>
+          <ul>
+            <li>Reviewed only if space remains</li>
+            <li>No guaranteed spot</li>
+            <li>Decisions on a rolling basis</li>
+          </ul>
+        </div>
+      </div>
+      <p class="deadline-footnote">Applying to present also reserves your seat — no need to RSVP separately if you've applied.</p>
+    </div>
+  </section>
+
+  <!-- ============ 4. THE DAY ============ -->
+  <section id="the-day">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The day</span>
+        <h2>What Saturday looks like</h2>
+        <p>Exact times aren't locked in yet — here's the shape of the day. Timed schedule goes out closer to October.</p>
+      </div>
+      <div class="agenda">
+        <div class="agenda-item">
+          <span class="time" hidden>TODO time</span>
+          <div>
+            <h3>Check-in &amp; breakfast</h3>
+            <p>Grab your badge, get some coffee, find your poster board.</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <span class="time" hidden>TODO time</span>
+          <div>
+            <h3>Keynote</h3>
+            <p>A short talk to kick off the day.</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <span class="time" hidden>TODO time</span>
+          <div>
+            <h3>Poster session</h3>
+            <p>The main event — you, your poster, and anyone who stops by to ask about it.</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <span class="time" hidden>TODO time</span>
+          <div>
+            <h3>Lunch</h3>
+            <p>Free lunch, included for everyone presenting or attending.</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <span class="time" hidden>TODO time</span>
+          <div>
+            <h3>Professional development workshops</h3>
+            <p>Short sessions on things like grad school, funding, and what comes after undergrad research.</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <span class="time" hidden>TODO time</span>
+          <div>
+            <h3>Awards</h3>
+            <p>A handful of posters get recognized before we wrap up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. WORKSHOPS & INFO SESSIONS ============ -->
+  <section id="workshops" class="workshops-band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Before the conference</span>
+        <h2>Free help getting ready</h2>
+        <p>In the weeks before October 10, we're running free info sessions and poster-building workshops over Zoom — open to anyone who's applied or planning to.</p>
+      </div>
+      <div class="workshop-points">
+        <div class="workshop-point">
+          <h3>Info sessions</h3>
+          <p>What to expect on the day, how review works, and how to use the deadlines to your advantage.</p>
+        </div>
+        <div class="workshop-point">
+          <h3>Poster workshops</h3>
+          <p>How to turn a project — finished or not — into a poster people will actually stop and read.</p>
+        </div>
+        <div class="workshop-point">
+          <h3>Recorded, always</h3>
+          <p>Can't make it live? Every session is recorded and sent to everyone who's applied or RSVP'd.</p>
+        </div>
+      </div>
+      <p style="margin-top:2rem; color:var(--night-text-muted);">Dates aren't set yet. Once they are, we'll email them to everyone who's applied or RSVP'd — no need to check back here.</p>
+      <!-- FLAG: workshopDates / infoSessionDates — currently OFF.
+           When real dates are confirmed, add them here (e.g. a small list of
+           session date/time rows) instead of the paragraph above, or unhide
+           a dates list block placed here. Do not add placeholder dates. -->
+    </div>
+  </section>
+
+  <!-- ============ 6. FAQ ============ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions people actually ask</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>Can I apply if I'm not a UNC student? <span class="icon" aria-hidden="true"></span></summary>
+          <div class="faq-body">Yes. URC is open to undergraduates at any college or university, not just UNC.</div>
+        </details>
+        <details class="faq">
+          <summary>Is it free? <span class="icon" aria-hidden="true"></span></summary>
+          <div class="faq-body">Yes — free to attend and free to present.</div>
+        </details>
+        <details class="faq">
+          <summary>What size can my poster be, and what does printing cost? <span class="icon" aria-hidden="true"></span></summary>
+          <div class="faq-body">[TODO before publishing: confirm the max poster size and campus printing cost, then replace this text.]<span class="flag">Not yet confirmed</span></div>
+        </details>
+        <details class="faq">
+          <summary>What if I've never presented before? <span class="icon" aria-hidden="true"></span></summary>
+          <div class="faq-body">Most presenters at URC haven't either. The pre-conference workshops cover what you need.</div>
+        </details>
+        <details class="faq">
+          <summary>What if my research isn't finished? <span class="icon" aria-hidden="true"></span></summary>
+          <div class="faq-body">Work in progress is fine. Preliminary results and early-stage data count as research here.</div>
+        </details>
+        <details class="faq">
+          <summary>Do I need my faculty mentor's permission? <span class="icon" aria-hidden="true"></span></summary>
+          <div class="faq-body">No formal permission is required to apply. It's worth telling your mentor or PI you're presenting.</div>
+        </details>
+        <details class="faq">
+          <summary>What if I can't afford to print a poster? <span class="icon" aria-hidden="true"></span></summary>
+          <div class="faq-body">Tell us when you apply. We've set aside funds for printing and can point you to campus resources.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. PARTNERS ============ -->
+  <section id="partners">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2rem;">
+        <span class="eyebrow">Made possible with</span>
+      </div>
+      <!-- TODO: swap these text lockups for real partner logo files once
+           received, each with alt text and any required credit line. -->
+      <div class="partner-row">
+        <span class="partner-lockup">Office of Undergraduate Research</span>
+        <span class="partner-lockup">Campus Y</span>
+        <span class="partner-lockup">Morehead Planetarium &amp; Science Center</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. TEAM ============ -->
+  <section id="team">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Team</span>
+        <h2>Who's running this</h2>
+        <p>Nine undergraduates organizing the conference.</p>
+      </div>
+      <!-- TODO: replace each name / role, and swap the silhouette for a real
+           headshot (with alt text), as headshots come in. -->
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="silhouette" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="currentColor"/><path d="M14 100c0-24 16-38 36-38s36 14 36 38" fill="currentColor"/></svg></div>
+          <p class="name">[Exec name — TODO]</p>
+          <p class="role">[Role — TODO]</p>
+        </div>
+        <div class="team-card">
+          <div class="silhouette" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="currentColor"/><path d="M14 100c0-24 16-38 36-38s36 14 36 38" fill="currentColor"/></svg></div>
+          <p class="name">[Exec name — TODO]</p>
+          <p class="role">[Role — TODO]</p>
+        </div>
+        <div class="team-card">
+          <div class="silhouette" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="currentColor"/><path d="M14 100c0-24 16-38 36-38s36 14 36 38" fill="currentColor"/></svg></div>
+          <p class="name">[Exec name — TODO]</p>
+          <p class="role">[Role — TODO]</p>
+        </div>
+        <div class="team-card">
+          <div class="silhouette" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="currentColor"/><path d="M14 100c0-24 16-38 36-38s36 14 36 38" fill="currentColor"/></svg></div>
+          <p class="name">[Exec name — TODO]</p>
+          <p class="role">[Role — TODO]</p>
+        </div>
+        <div class="team-card">
+          <div class="silhouette" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="currentColor"/><path d="M14 100c0-24 16-38 36-38s36 14 36 38" fill="currentColor"/></svg></div>
+          <p class="name">[Exec name — TODO]</p>
+          <p class="role">[Role — TODO]</p>
+        </div>
+        <div class="team-card">
+          <div class="silhouette" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="currentColor"/><path d="M14 100c0-24 16-38 36-38s36 14 36 38" fill="currentColor"/></svg></div>
+          <p class="name">[Exec name — TODO]</p>
+          <p class="role">[Role — TODO]</p>
+        </div>
+        <div class="team-card">
+          <div class="silhouette" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="currentColor"/><path d="M14 100c0-24 16-38 36-38s36 14 36 38" fill="currentColor"/></svg></div>
+          <p class="name">[Exec name — TODO]</p>
+          <p class="role">[Role — TODO]</p>
+        </div>
+        <div class="team-card">
+          <div class="silhouette" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="currentColor"/><path d="M14 100c0-24 16-38 36-38s36 14 36 38" fill="currentColor"/></svg></div>
+          <p class="name">[Exec name — TODO]</p>
+          <p class="role">[Role — TODO]</p>
+        </div>
+        <div class="team-card">
+          <div class="silhouette" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" fill="currentColor"/><path d="M14 100c0-24 16-38 36-38s36 14 36 38" fill="currentColor"/></svg></div>
+          <p class="name">[Exec name — TODO]</p>
+          <p class="role">[Role — TODO]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 9. FOOTER ============ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="wordmark" href="#top">URC <span aria-hidden="true">@</span> UNC</a>
+        <p style="margin-top:0.6rem; max-width:32ch;">First annual, student-run undergraduate research conference at UNC-Chapel Hill.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:TODO@example.edu">[Contact email — TODO]</a>
+        <a href="https://instagram.com/TODO" target="_blank" rel="noopener">[Instagram handle — TODO]</a>
+        <span>Accessibility: [name &amp; email — TODO]</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 URC @ UNC</span>
+      <span>Saturday, October 10, 2026 &middot; Morehead Planetarium and Science Center</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ Mobile sticky CTA bar ============
+     Always visible below 640px so "Apply" is reachable within one
+     thumb-scroll no matter where on the page someone is. -->
+<div class="sticky-apply" role="region" aria-label="Quick actions">
+  <a class="btn btn-primary btn-block" href="#TODO-APPLICATION-FORM-URL">Apply to present</a>
+  <a class="btn btn-secondary" href="#TODO-RSVP-FORM-URL">RSVP</a>
+</div>
+
+</body>
+</html>
